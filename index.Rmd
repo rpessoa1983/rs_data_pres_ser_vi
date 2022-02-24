@@ -20,46 +20,25 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
-???
-
-Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
-
 ---
 
 class: center, middle
 
-# xaringan
+# Dados
 
-### /ʃaː.'riŋ.ɡan/
+### Fontes
 
 ---
 class: inverse, center, middle
 
-# Get Started
+# O que é dado?
 
 ---
+class: inverse, center, middle
 
-# Hello World
+# Quais estratégias vocês utilizam para coletar dados?
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
-
-```{r eval=FALSE, tidy=FALSE}
-remotes::install_github("yihui/xaringan")
-```
-
---
-
-You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
-
-- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
-
---
-
-- Click the `Knit` button to compile it;
-
---
-
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
+---
 
 .footnote[
 [1] 中文用户请看[这份教程](https://slides.yihui.org/xaringan/zh-CN.html)
@@ -68,42 +47,34 @@ You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rs
 ]
 
 ---
-background-image: url(`r xaringan:::karl`)
+background-image: url(img/biker.png)
 background-position: 50% 50%
 class: center, bottom, inverse
 
-# You only live once!
+# Se você não se equilibrar os dados podem te derrubar!
+
+---
+background-image: url(img/farol.png) 
+background-position: 25% 50%
+class: center, bottom
+
+# Meio Ambiente
 
 ---
 
-# Hello Ninja
+# Vamos conhecer algumas fontes especiais de dados
 
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
+Muitas fontes de dados não nos informam os metadados, o que atrasa na coleta 
+dessas informações. Por isso, listamos um conjunto de dados qualificados 
+que nos permitem dar rastreabilidade para a informação:
 
-1. The [remark.js](https://remarkjs.com) library;
+```{r, echo = FALSE, out.height="10%", fig.height=1, out.width="10%",fig.align='left'}
 
-1. The **xaringan** package;
+knitr::include_graphics("img/logo_snis.png")
 
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
+```
 
----
-
-# remark.js
-
-You can see an introduction of remark.js from [its homepage](https://remarkjs.com). You should read the [remark.js Wiki](https://github.com/gnab/remark/wiki) at least once to know how to
-
-- create a new slide (Markdown syntax<sup>*</sup> and slide properties);
-
-- format a slide (e.g. text alignment);
-
-- configure the slideshow;
-
-- and use the presentation (keyboard shortcuts).
-
-It is important to be familiar with remark.js before you can understand the options in **xaringan**.
-
-.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
-
+1. [Sistema Nacional de Informações sobre o Saneamento](http://app4.mdr.gov.br/serieHistorica/) ;
 ---
 background-image: url(`r xaringan:::karl`)
 background-size: cover
@@ -193,25 +164,23 @@ Limitations:
 
 ---
 
-# R Code
+# Exemplo - Codigo para Sidrar
 
 ```{r comment='#'}
-# a boring regression
-fit = lm(dist ~ 1 + speed, data = cars)
-coef(summary(fit))
-dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
-grep('天', dojutsu, value = TRUE)
+# Instalacao
+library(sidrar)
+lista <- search_sidra("casamento")
+## Depois de rodar o código acima pode optar por uma das tabelas por exemplo:
+sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
+
+
 ```
 
 ---
 
 # R Plots
 
-```{r cars, fig.height=4, dev='svg'}
-par(mar = c(4, 4, 1, .1))
-plot(cars, pch = 19, col = 'darkgray', las = 1)
-abline(fit, lwd = 2)
-```
+
 
 ---
 

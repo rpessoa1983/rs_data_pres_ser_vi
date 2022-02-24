@@ -40,47 +40,25 @@ class: center, middle, inverse, title-slide
 
 
 
-???
-
-Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
-
 ---
 
 class: center, middle
 
-# xaringan
+# Dados
 
-### /ʃaː.'riŋ.ɡan/
+### Fontes
 
 ---
 class: inverse, center, middle
 
-# Get Started
+# O que é dado?
 
 ---
+class: inverse, center, middle
 
-# Hello World
+# Quais estratégias vocês utilizam para coletar dados?
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
-
-
-```r
-remotes::install_github("yihui/xaringan")
-```
-
---
-
-You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
-
-- Create a new R Markdown document from the menu `File -&gt; New File -&gt; R Markdown -&gt; From Template -&gt; Ninja Presentation`;&lt;sup&gt;1&lt;/sup&gt;
-
---
-
-- Click the `Knit` button to compile it;
-
---
-
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)&lt;sup&gt;2&lt;/sup&gt; "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
+---
 
 .footnote[
 [1] 中文用户请看[这份教程](https://slides.yihui.org/xaringan/zh-CN.html)
@@ -89,42 +67,30 @@ You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rs
 ]
 
 ---
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
+background-image: url(img/biker.png)
 background-position: 50% 50%
 class: center, bottom, inverse
 
-# You only live once!
+# Se você não se equilibrar os dados podem te derrubar!
+
+---
+background-image: url(img/farol.png) 
+background-position: 25% 50%
+class: center, bottom
+
+# Meio Ambiente
 
 ---
 
-# Hello Ninja
+# Vamos conhecer algumas fontes especiais de dados
 
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
+Muitas fontes de dados não nos informam os metadados, o que atrasa na coleta 
+dessas informações. Por isso, listamos um conjunto de dados qualificados 
+que nos permitem dar rastreabilidade para a informação:
 
-1. The [remark.js](https://remarkjs.com) library;
+&lt;img src="img/logo_snis.png" width="10%" height="10%" style="display: block; margin: auto auto auto 0;" /&gt;
 
-1. The **xaringan** package;
-
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
-
----
-
-# remark.js
-
-You can see an introduction of remark.js from [its homepage](https://remarkjs.com). You should read the [remark.js Wiki](https://github.com/gnab/remark/wiki) at least once to know how to
-
-- create a new slide (Markdown syntax&lt;sup&gt;*&lt;/sup&gt; and slide properties);
-
-- format a slide (e.g. text alignment);
-
-- configure the slideshow;
-
-- and use the presentation (keyboard shortcuts).
-
-It is important to be familiar with remark.js before you can understand the options in **xaringan**.
-
-.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
-
+1. [Sistema Nacional de Informações sobre o Saneamento](http://app4.mdr.gov.br/serieHistorica/) ;
 ---
 background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 background-size: cover
@@ -214,28 +180,872 @@ Limitations:
 
 ---
 
-# R Code
+# Exemplo - Codigo para Sidrar
 
 
 ```r
-# a boring regression
-fit = lm(dist ~ 1 + speed, data = cars)
-coef(summary(fit))
+# Instalacao
+library(sidrar)
+lista &lt;- search_sidra("casamento")
+## Depois de rodar o código acima pode optar por uma das tabelas por exemplo:
+sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 ```
 
 ```
-#               Estimate Std. Error   t value     Pr(&gt;|t|)
-# (Intercept) -17.579095  6.7584402 -2.601058 1.231882e-02
-# speed         3.932409  0.4155128  9.463990 1.489836e-12
-```
-
-```r
-dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
-grep('天', dojutsu, value = TRUE)
+# Considering all categories once 'classific' was set to 'all' (default)
 ```
 
 ```
-# character(0)
+#     Nível Territorial (Código) Nível Territorial Unidade de Medida (Código)
+# 2                            6         Município                       1020
+# 3                            6         Município                       1020
+# 4                            6         Município                       1020
+# 5                            6         Município                       1020
+# 6                            6         Município                       1020
+# 7                            6         Município                       1020
+# 8                            6         Município                       1020
+# 9                            6         Município                       1020
+# 10                           6         Município                       1020
+# 11                           6         Município                       1020
+# 12                           6         Município                       1020
+# 13                           6         Município                       1020
+# 14                           6         Município                       1020
+# 15                           6         Município                       1020
+# 16                           6         Município                       1020
+# 17                           6         Município                       1020
+# 18                           6         Município                       1020
+# 19                           6         Município                       1020
+# 20                           6         Município                       1020
+# 21                           6         Município                       1020
+# 22                           6         Município                       1020
+# 23                           6         Município                       1020
+# 24                           6         Município                       1020
+# 25                           6         Município                       1020
+# 26                           6         Município                       1020
+# 27                           6         Município                       1020
+# 28                           6         Município                       1020
+# 29                           6         Município                       1020
+# 30                           6         Município                       1020
+# 31                           6         Município                       1020
+# 32                           6         Município                       1020
+# 33                           6         Município                       1020
+# 34                           6         Município                       1020
+# 35                           6         Município                       1020
+# 36                           6         Município                       1020
+# 37                           6         Município                       1020
+# 38                           6         Município                       1020
+# 39                           6         Município                       1020
+# 40                           6         Município                       1020
+# 41                           6         Município                       1020
+# 42                           6         Município                       1020
+# 43                           6         Município                       1020
+# 44                           6         Município                       1020
+# 45                           6         Município                       1020
+# 46                           6         Município                       1020
+# 47                           6         Município                       1020
+# 48                           6         Município                       1020
+# 49                           6         Município                       1020
+# 50                           6         Município                       1020
+# 51                           6         Município                       1020
+# 52                           6         Município                       1020
+# 53                           6         Município                       1020
+# 54                           6         Município                       1020
+# 55                           6         Município                       1020
+# 56                           6         Município                       1020
+# 57                           6         Município                       1020
+# 58                           6         Município                       1020
+# 59                           6         Município                       1020
+# 60                           6         Município                       1020
+# 61                           6         Município                       1020
+# 62                           6         Município                       1020
+# 63                           6         Município                       1020
+# 64                           6         Município                       1020
+# 65                           6         Município                       1020
+# 66                           6         Município                       1020
+# 67                           6         Município                       1020
+# 68                           6         Município                       1020
+# 69                           6         Município                       1020
+# 70                           6         Município                       1020
+# 71                           6         Município                       1020
+# 72                           6         Município                       1020
+# 73                           6         Município                       1020
+# 74                           6         Município                       1020
+# 75                           6         Município                       1020
+# 76                           6         Município                       1020
+# 77                           6         Município                       1020
+# 78                           6         Município                       1020
+# 79                           6         Município                       1020
+# 80                           6         Município                       1020
+# 81                           6         Município                       1020
+# 82                           6         Município                       1020
+# 83                           6         Município                       1020
+# 84                           6         Município                       1020
+# 85                           6         Município                       1020
+# 86                           6         Município                       1020
+# 87                           6         Município                       1020
+# 88                           6         Município                       1020
+# 89                           6         Município                       1020
+# 90                           6         Município                       1020
+# 91                           6         Município                       1020
+# 92                           6         Município                       1020
+# 93                           6         Município                       1020
+# 94                           6         Município                       1020
+# 95                           6         Município                       1020
+# 96                           6         Município                       1020
+# 97                           6         Município                       1020
+# 98                           6         Município                       1020
+# 99                           6         Município                       1020
+# 100                          6         Município                       1020
+# 101                          6         Município                       1020
+# 102                          6         Município                       1020
+# 103                          6         Município                       1020
+# 104                          6         Município                       1020
+# 105                          6         Município                       1020
+# 106                          6         Município                       1020
+# 107                          6         Município                       1020
+# 108                          6         Município                       1020
+# 109                          6         Município                       1020
+# 110                          6         Município                       1020
+# 111                          6         Município                       1020
+# 112                          6         Município                       1020
+# 113                          6         Município                       1020
+# 114                          6         Município                       1020
+# 115                          6         Município                       1020
+# 116                          6         Município                       1020
+# 117                          6         Município                       1020
+# 118                          6         Município                       1020
+# 119                          6         Município                       1020
+# 120                          6         Município                       1020
+# 121                          6         Município                       1020
+# 122                          6         Município                       1020
+# 123                          6         Município                       1020
+# 124                          6         Município                       1020
+# 125                          6         Município                       1020
+# 126                          6         Município                       1020
+# 127                          6         Município                       1020
+# 128                          6         Município                       1020
+# 129                          6         Município                       1020
+# 130                          6         Município                       1020
+# 131                          6         Município                       1020
+# 132                          6         Município                       1020
+# 133                          6         Município                       1020
+# 134                          6         Município                       1020
+# 135                          6         Município                       1020
+# 136                          6         Município                       1020
+# 137                          6         Município                       1020
+# 138                          6         Município                       1020
+# 139                          6         Município                       1020
+# 140                          6         Município                       1020
+# 141                          6         Município                       1020
+# 142                          6         Município                       1020
+# 143                          6         Município                       1020
+# 144                          6         Município                       1020
+# 145                          6         Município                       1020
+# 146                          6         Município                       1020
+# 147                          6         Município                       1020
+# 148                          6         Município                       1020
+# 149                          6         Município                       1020
+# 150                          6         Município                       1020
+# 151                          6         Município                       1020
+# 152                          6         Município                       1020
+# 153                          6         Município                       1020
+# 154                          6         Município                       1020
+# 155                          6         Município                       1020
+# 156                          6         Município                       1020
+# 157                          6         Município                       1020
+# 158                          6         Município                       1020
+# 159                          6         Município                       1020
+# 160                          6         Município                       1020
+# 161                          6         Município                       1020
+# 162                          6         Município                       1020
+# 163                          6         Município                       1020
+# 164                          6         Município                       1020
+# 165                          6         Município                       1020
+# 166                          6         Município                       1020
+# 167                          6         Município                       1020
+# 168                          6         Município                       1020
+# 169                          6         Município                       1020
+# 170                          6         Município                       1020
+#     Unidade de Medida Valor Município (Código)     Município Ano (Código)  Ano
+# 2            Unidades  8546            2927408 Salvador (BA)         2002 2002
+# 3            Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 4            Unidades   142            2927408 Salvador (BA)         2002 2002
+# 5            Unidades  1727            2927408 Salvador (BA)         2002 2002
+# 6            Unidades  2525            2927408 Salvador (BA)         2002 2002
+# 7            Unidades  1808            2927408 Salvador (BA)         2002 2002
+# 8            Unidades  1016            2927408 Salvador (BA)         2002 2002
+# 9            Unidades   539            2927408 Salvador (BA)         2002 2002
+# 10           Unidades   267            2927408 Salvador (BA)         2002 2002
+# 11           Unidades   199            2927408 Salvador (BA)         2002 2002
+# 12           Unidades   106            2927408 Salvador (BA)         2002 2002
+# 13           Unidades    75            2927408 Salvador (BA)         2002 2002
+# 14           Unidades   142            2927408 Salvador (BA)         2002 2002
+# 15           Unidades     1            2927408 Salvador (BA)         2002 2002
+# 16           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 17           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 18           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 19           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 20           Unidades     1            2927408 Salvador (BA)         2002 2002
+# 21           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 22           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 23           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 24           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 25           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 26           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 27           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 28           Unidades   736            2927408 Salvador (BA)         2002 2002
+# 29           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 30           Unidades    91            2927408 Salvador (BA)         2002 2002
+# 31           Unidades   422            2927408 Salvador (BA)         2002 2002
+# 32           Unidades   165            2927408 Salvador (BA)         2002 2002
+# 33           Unidades    44            2927408 Salvador (BA)         2002 2002
+# 34           Unidades    13            2927408 Salvador (BA)         2002 2002
+# 35           Unidades     1            2927408 Salvador (BA)         2002 2002
+# 36           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 37           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 38           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 39           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 40           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 41           Unidades  2524            2927408 Salvador (BA)         2002 2002
+# 42           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 43           Unidades    37            2927408 Salvador (BA)         2002 2002
+# 44           Unidades   893            2927408 Salvador (BA)         2002 2002
+# 45           Unidades  1019            2927408 Salvador (BA)         2002 2002
+# 46           Unidades   392            2927408 Salvador (BA)         2002 2002
+# 47           Unidades   127            2927408 Salvador (BA)         2002 2002
+# 48           Unidades    34            2927408 Salvador (BA)         2002 2002
+# 49           Unidades    14            2927408 Salvador (BA)         2002 2002
+# 50           Unidades     6            2927408 Salvador (BA)         2002 2002
+# 51           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 52           Unidades     2            2927408 Salvador (BA)         2002 2002
+# 53           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 54           Unidades  2364            2927408 Salvador (BA)         2002 2002
+# 55           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 56           Unidades     8            2927408 Salvador (BA)         2002 2002
+# 57           Unidades   309            2927408 Salvador (BA)         2002 2002
+# 58           Unidades   968            2927408 Salvador (BA)         2002 2002
+# 59           Unidades   689            2927408 Salvador (BA)         2002 2002
+# 60           Unidades   257            2927408 Salvador (BA)         2002 2002
+# 61           Unidades    81            2927408 Salvador (BA)         2002 2002
+# 62           Unidades    23            2927408 Salvador (BA)         2002 2002
+# 63           Unidades    14            2927408 Salvador (BA)         2002 2002
+# 64           Unidades     6            2927408 Salvador (BA)         2002 2002
+# 65           Unidades     3            2927408 Salvador (BA)         2002 2002
+# 66           Unidades     6            2927408 Salvador (BA)         2002 2002
+# 67           Unidades  1366            2927408 Salvador (BA)         2002 2002
+# 68           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 69           Unidades     4            2927408 Salvador (BA)         2002 2002
+# 70           Unidades    72            2927408 Salvador (BA)         2002 2002
+# 71           Unidades   273            2927408 Salvador (BA)         2002 2002
+# 72           Unidades   489            2927408 Salvador (BA)         2002 2002
+# 73           Unidades   321            2927408 Salvador (BA)         2002 2002
+# 74           Unidades   116            2927408 Salvador (BA)         2002 2002
+# 75           Unidades    44            2927408 Salvador (BA)         2002 2002
+# 76           Unidades    26            2927408 Salvador (BA)         2002 2002
+# 77           Unidades    12            2927408 Salvador (BA)         2002 2002
+# 78           Unidades     4            2927408 Salvador (BA)         2002 2002
+# 79           Unidades     5            2927408 Salvador (BA)         2002 2002
+# 80           Unidades   708            2927408 Salvador (BA)         2002 2002
+# 81           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 82           Unidades     2            2927408 Salvador (BA)         2002 2002
+# 83           Unidades    26            2927408 Salvador (BA)         2002 2002
+# 84           Unidades    70            2927408 Salvador (BA)         2002 2002
+# 85           Unidades   143            2927408 Salvador (BA)         2002 2002
+# 86           Unidades   187            2927408 Salvador (BA)         2002 2002
+# 87           Unidades   152            2927408 Salvador (BA)         2002 2002
+# 88           Unidades    61            2927408 Salvador (BA)         2002 2002
+# 89           Unidades    38            2927408 Salvador (BA)         2002 2002
+# 90           Unidades    14            2927408 Salvador (BA)         2002 2002
+# 91           Unidades     4            2927408 Salvador (BA)         2002 2002
+# 92           Unidades    11            2927408 Salvador (BA)         2002 2002
+# 93           Unidades   389            2927408 Salvador (BA)         2002 2002
+# 94           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 95           Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 96           Unidades     1            2927408 Salvador (BA)         2002 2002
+# 97           Unidades    18            2927408 Salvador (BA)         2002 2002
+# 98           Unidades    40            2927408 Salvador (BA)         2002 2002
+# 99           Unidades    77            2927408 Salvador (BA)         2002 2002
+# 100          Unidades   107            2927408 Salvador (BA)         2002 2002
+# 101          Unidades    64            2927408 Salvador (BA)         2002 2002
+# 102          Unidades    32            2927408 Salvador (BA)         2002 2002
+# 103          Unidades    21            2927408 Salvador (BA)         2002 2002
+# 104          Unidades    18            2927408 Salvador (BA)         2002 2002
+# 105          Unidades    11            2927408 Salvador (BA)         2002 2002
+# 106          Unidades   205            2927408 Salvador (BA)         2002 2002
+# 107          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 108          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 109          Unidades     3            2927408 Salvador (BA)         2002 2002
+# 110          Unidades     8            2927408 Salvador (BA)         2002 2002
+# 111          Unidades     8            2927408 Salvador (BA)         2002 2002
+# 112          Unidades    28            2927408 Salvador (BA)         2002 2002
+# 113          Unidades    31            2927408 Salvador (BA)         2002 2002
+# 114          Unidades    39            2927408 Salvador (BA)         2002 2002
+# 115          Unidades    35            2927408 Salvador (BA)         2002 2002
+# 116          Unidades    19            2927408 Salvador (BA)         2002 2002
+# 117          Unidades    12            2927408 Salvador (BA)         2002 2002
+# 118          Unidades    22            2927408 Salvador (BA)         2002 2002
+# 119          Unidades   125            2927408 Salvador (BA)         2002 2002
+# 120          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 121          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 122          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 123          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 124          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 125          Unidades     5            2927408 Salvador (BA)         2002 2002
+# 126          Unidades    14            2927408 Salvador (BA)         2002 2002
+# 127          Unidades    16            2927408 Salvador (BA)         2002 2002
+# 128          Unidades    33            2927408 Salvador (BA)         2002 2002
+# 129          Unidades    21            2927408 Salvador (BA)         2002 2002
+# 130          Unidades    13            2927408 Salvador (BA)         2002 2002
+# 131          Unidades    20            2927408 Salvador (BA)         2002 2002
+# 132          Unidades    60            2927408 Salvador (BA)         2002 2002
+# 133          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 134          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 135          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 136          Unidades     2            2927408 Salvador (BA)         2002 2002
+# 137          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 138          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 139          Unidades     2            2927408 Salvador (BA)         2002 2002
+# 140          Unidades     4            2927408 Salvador (BA)         2002 2002
+# 141          Unidades    10            2927408 Salvador (BA)         2002 2002
+# 142          Unidades     9            2927408 Salvador (BA)         2002 2002
+# 143          Unidades     8            2927408 Salvador (BA)         2002 2002
+# 144          Unidades    24            2927408 Salvador (BA)         2002 2002
+# 145          Unidades    35            2927408 Salvador (BA)         2002 2002
+# 146          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 147          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 148          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 149          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 150          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 151          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 152          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 153          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 154          Unidades     3            2927408 Salvador (BA)         2002 2002
+# 155          Unidades     2            2927408 Salvador (BA)         2002 2002
+# 156          Unidades     8            2927408 Salvador (BA)         2002 2002
+# 157          Unidades    18            2927408 Salvador (BA)         2002 2002
+# 158          Unidades    33            2927408 Salvador (BA)         2002 2002
+# 159          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 160          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 161          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 162          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 163          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 164          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 165          Unidades    NA            2927408 Salvador (BA)         2002 2002
+# 166          Unidades     1            2927408 Salvador (BA)         2002 2002
+# 167          Unidades     2            2927408 Salvador (BA)         2002 2002
+# 168          Unidades     2            2927408 Salvador (BA)         2002 2002
+# 169          Unidades     3            2927408 Salvador (BA)         2002 2002
+# 170          Unidades    25            2927408 Salvador (BA)         2002 2002
+#     Variável (Código)                                                 Variável
+# 2                 221 Número de casamentos entre cônjuges masculino e feminino
+# 3                 221 Número de casamentos entre cônjuges masculino e feminino
+# 4                 221 Número de casamentos entre cônjuges masculino e feminino
+# 5                 221 Número de casamentos entre cônjuges masculino e feminino
+# 6                 221 Número de casamentos entre cônjuges masculino e feminino
+# 7                 221 Número de casamentos entre cônjuges masculino e feminino
+# 8                 221 Número de casamentos entre cônjuges masculino e feminino
+# 9                 221 Número de casamentos entre cônjuges masculino e feminino
+# 10                221 Número de casamentos entre cônjuges masculino e feminino
+# 11                221 Número de casamentos entre cônjuges masculino e feminino
+# 12                221 Número de casamentos entre cônjuges masculino e feminino
+# 13                221 Número de casamentos entre cônjuges masculino e feminino
+# 14                221 Número de casamentos entre cônjuges masculino e feminino
+# 15                221 Número de casamentos entre cônjuges masculino e feminino
+# 16                221 Número de casamentos entre cônjuges masculino e feminino
+# 17                221 Número de casamentos entre cônjuges masculino e feminino
+# 18                221 Número de casamentos entre cônjuges masculino e feminino
+# 19                221 Número de casamentos entre cônjuges masculino e feminino
+# 20                221 Número de casamentos entre cônjuges masculino e feminino
+# 21                221 Número de casamentos entre cônjuges masculino e feminino
+# 22                221 Número de casamentos entre cônjuges masculino e feminino
+# 23                221 Número de casamentos entre cônjuges masculino e feminino
+# 24                221 Número de casamentos entre cônjuges masculino e feminino
+# 25                221 Número de casamentos entre cônjuges masculino e feminino
+# 26                221 Número de casamentos entre cônjuges masculino e feminino
+# 27                221 Número de casamentos entre cônjuges masculino e feminino
+# 28                221 Número de casamentos entre cônjuges masculino e feminino
+# 29                221 Número de casamentos entre cônjuges masculino e feminino
+# 30                221 Número de casamentos entre cônjuges masculino e feminino
+# 31                221 Número de casamentos entre cônjuges masculino e feminino
+# 32                221 Número de casamentos entre cônjuges masculino e feminino
+# 33                221 Número de casamentos entre cônjuges masculino e feminino
+# 34                221 Número de casamentos entre cônjuges masculino e feminino
+# 35                221 Número de casamentos entre cônjuges masculino e feminino
+# 36                221 Número de casamentos entre cônjuges masculino e feminino
+# 37                221 Número de casamentos entre cônjuges masculino e feminino
+# 38                221 Número de casamentos entre cônjuges masculino e feminino
+# 39                221 Número de casamentos entre cônjuges masculino e feminino
+# 40                221 Número de casamentos entre cônjuges masculino e feminino
+# 41                221 Número de casamentos entre cônjuges masculino e feminino
+# 42                221 Número de casamentos entre cônjuges masculino e feminino
+# 43                221 Número de casamentos entre cônjuges masculino e feminino
+# 44                221 Número de casamentos entre cônjuges masculino e feminino
+# 45                221 Número de casamentos entre cônjuges masculino e feminino
+# 46                221 Número de casamentos entre cônjuges masculino e feminino
+# 47                221 Número de casamentos entre cônjuges masculino e feminino
+# 48                221 Número de casamentos entre cônjuges masculino e feminino
+# 49                221 Número de casamentos entre cônjuges masculino e feminino
+# 50                221 Número de casamentos entre cônjuges masculino e feminino
+# 51                221 Número de casamentos entre cônjuges masculino e feminino
+# 52                221 Número de casamentos entre cônjuges masculino e feminino
+# 53                221 Número de casamentos entre cônjuges masculino e feminino
+# 54                221 Número de casamentos entre cônjuges masculino e feminino
+# 55                221 Número de casamentos entre cônjuges masculino e feminino
+# 56                221 Número de casamentos entre cônjuges masculino e feminino
+# 57                221 Número de casamentos entre cônjuges masculino e feminino
+# 58                221 Número de casamentos entre cônjuges masculino e feminino
+# 59                221 Número de casamentos entre cônjuges masculino e feminino
+# 60                221 Número de casamentos entre cônjuges masculino e feminino
+# 61                221 Número de casamentos entre cônjuges masculino e feminino
+# 62                221 Número de casamentos entre cônjuges masculino e feminino
+# 63                221 Número de casamentos entre cônjuges masculino e feminino
+# 64                221 Número de casamentos entre cônjuges masculino e feminino
+# 65                221 Número de casamentos entre cônjuges masculino e feminino
+# 66                221 Número de casamentos entre cônjuges masculino e feminino
+# 67                221 Número de casamentos entre cônjuges masculino e feminino
+# 68                221 Número de casamentos entre cônjuges masculino e feminino
+# 69                221 Número de casamentos entre cônjuges masculino e feminino
+# 70                221 Número de casamentos entre cônjuges masculino e feminino
+# 71                221 Número de casamentos entre cônjuges masculino e feminino
+# 72                221 Número de casamentos entre cônjuges masculino e feminino
+# 73                221 Número de casamentos entre cônjuges masculino e feminino
+# 74                221 Número de casamentos entre cônjuges masculino e feminino
+# 75                221 Número de casamentos entre cônjuges masculino e feminino
+# 76                221 Número de casamentos entre cônjuges masculino e feminino
+# 77                221 Número de casamentos entre cônjuges masculino e feminino
+# 78                221 Número de casamentos entre cônjuges masculino e feminino
+# 79                221 Número de casamentos entre cônjuges masculino e feminino
+# 80                221 Número de casamentos entre cônjuges masculino e feminino
+# 81                221 Número de casamentos entre cônjuges masculino e feminino
+# 82                221 Número de casamentos entre cônjuges masculino e feminino
+# 83                221 Número de casamentos entre cônjuges masculino e feminino
+# 84                221 Número de casamentos entre cônjuges masculino e feminino
+# 85                221 Número de casamentos entre cônjuges masculino e feminino
+# 86                221 Número de casamentos entre cônjuges masculino e feminino
+# 87                221 Número de casamentos entre cônjuges masculino e feminino
+# 88                221 Número de casamentos entre cônjuges masculino e feminino
+# 89                221 Número de casamentos entre cônjuges masculino e feminino
+# 90                221 Número de casamentos entre cônjuges masculino e feminino
+# 91                221 Número de casamentos entre cônjuges masculino e feminino
+# 92                221 Número de casamentos entre cônjuges masculino e feminino
+# 93                221 Número de casamentos entre cônjuges masculino e feminino
+# 94                221 Número de casamentos entre cônjuges masculino e feminino
+# 95                221 Número de casamentos entre cônjuges masculino e feminino
+# 96                221 Número de casamentos entre cônjuges masculino e feminino
+# 97                221 Número de casamentos entre cônjuges masculino e feminino
+# 98                221 Número de casamentos entre cônjuges masculino e feminino
+# 99                221 Número de casamentos entre cônjuges masculino e feminino
+# 100               221 Número de casamentos entre cônjuges masculino e feminino
+# 101               221 Número de casamentos entre cônjuges masculino e feminino
+# 102               221 Número de casamentos entre cônjuges masculino e feminino
+# 103               221 Número de casamentos entre cônjuges masculino e feminino
+# 104               221 Número de casamentos entre cônjuges masculino e feminino
+# 105               221 Número de casamentos entre cônjuges masculino e feminino
+# 106               221 Número de casamentos entre cônjuges masculino e feminino
+# 107               221 Número de casamentos entre cônjuges masculino e feminino
+# 108               221 Número de casamentos entre cônjuges masculino e feminino
+# 109               221 Número de casamentos entre cônjuges masculino e feminino
+# 110               221 Número de casamentos entre cônjuges masculino e feminino
+# 111               221 Número de casamentos entre cônjuges masculino e feminino
+# 112               221 Número de casamentos entre cônjuges masculino e feminino
+# 113               221 Número de casamentos entre cônjuges masculino e feminino
+# 114               221 Número de casamentos entre cônjuges masculino e feminino
+# 115               221 Número de casamentos entre cônjuges masculino e feminino
+# 116               221 Número de casamentos entre cônjuges masculino e feminino
+# 117               221 Número de casamentos entre cônjuges masculino e feminino
+# 118               221 Número de casamentos entre cônjuges masculino e feminino
+# 119               221 Número de casamentos entre cônjuges masculino e feminino
+# 120               221 Número de casamentos entre cônjuges masculino e feminino
+# 121               221 Número de casamentos entre cônjuges masculino e feminino
+# 122               221 Número de casamentos entre cônjuges masculino e feminino
+# 123               221 Número de casamentos entre cônjuges masculino e feminino
+# 124               221 Número de casamentos entre cônjuges masculino e feminino
+# 125               221 Número de casamentos entre cônjuges masculino e feminino
+# 126               221 Número de casamentos entre cônjuges masculino e feminino
+# 127               221 Número de casamentos entre cônjuges masculino e feminino
+# 128               221 Número de casamentos entre cônjuges masculino e feminino
+# 129               221 Número de casamentos entre cônjuges masculino e feminino
+# 130               221 Número de casamentos entre cônjuges masculino e feminino
+# 131               221 Número de casamentos entre cônjuges masculino e feminino
+# 132               221 Número de casamentos entre cônjuges masculino e feminino
+# 133               221 Número de casamentos entre cônjuges masculino e feminino
+# 134               221 Número de casamentos entre cônjuges masculino e feminino
+# 135               221 Número de casamentos entre cônjuges masculino e feminino
+# 136               221 Número de casamentos entre cônjuges masculino e feminino
+# 137               221 Número de casamentos entre cônjuges masculino e feminino
+# 138               221 Número de casamentos entre cônjuges masculino e feminino
+# 139               221 Número de casamentos entre cônjuges masculino e feminino
+# 140               221 Número de casamentos entre cônjuges masculino e feminino
+# 141               221 Número de casamentos entre cônjuges masculino e feminino
+# 142               221 Número de casamentos entre cônjuges masculino e feminino
+# 143               221 Número de casamentos entre cônjuges masculino e feminino
+# 144               221 Número de casamentos entre cônjuges masculino e feminino
+# 145               221 Número de casamentos entre cônjuges masculino e feminino
+# 146               221 Número de casamentos entre cônjuges masculino e feminino
+# 147               221 Número de casamentos entre cônjuges masculino e feminino
+# 148               221 Número de casamentos entre cônjuges masculino e feminino
+# 149               221 Número de casamentos entre cônjuges masculino e feminino
+# 150               221 Número de casamentos entre cônjuges masculino e feminino
+# 151               221 Número de casamentos entre cônjuges masculino e feminino
+# 152               221 Número de casamentos entre cônjuges masculino e feminino
+# 153               221 Número de casamentos entre cônjuges masculino e feminino
+# 154               221 Número de casamentos entre cônjuges masculino e feminino
+# 155               221 Número de casamentos entre cônjuges masculino e feminino
+# 156               221 Número de casamentos entre cônjuges masculino e feminino
+# 157               221 Número de casamentos entre cônjuges masculino e feminino
+# 158               221 Número de casamentos entre cônjuges masculino e feminino
+# 159               221 Número de casamentos entre cônjuges masculino e feminino
+# 160               221 Número de casamentos entre cônjuges masculino e feminino
+# 161               221 Número de casamentos entre cônjuges masculino e feminino
+# 162               221 Número de casamentos entre cônjuges masculino e feminino
+# 163               221 Número de casamentos entre cônjuges masculino e feminino
+# 164               221 Número de casamentos entre cônjuges masculino e feminino
+# 165               221 Número de casamentos entre cônjuges masculino e feminino
+# 166               221 Número de casamentos entre cônjuges masculino e feminino
+# 167               221 Número de casamentos entre cônjuges masculino e feminino
+# 168               221 Número de casamentos entre cônjuges masculino e feminino
+# 169               221 Número de casamentos entre cônjuges masculino e feminino
+# 170               221 Número de casamentos entre cônjuges masculino e feminino
+#     Grupo de idade da mulher (Código) Grupo de idade da mulher
+# 2                                   0                    Total
+# 3                                   0                    Total
+# 4                                   0                    Total
+# 5                                   0                    Total
+# 6                                   0                    Total
+# 7                                   0                    Total
+# 8                                   0                    Total
+# 9                                   0                    Total
+# 10                                  0                    Total
+# 11                                  0                    Total
+# 12                                  0                    Total
+# 13                                  0                    Total
+# 14                                  0                    Total
+# 15                               5610         Menos de 15 anos
+# 16                               5610         Menos de 15 anos
+# 17                               5610         Menos de 15 anos
+# 18                               5610         Menos de 15 anos
+# 19                               5610         Menos de 15 anos
+# 20                               5610         Menos de 15 anos
+# 21                               5610         Menos de 15 anos
+# 22                               5610         Menos de 15 anos
+# 23                               5610         Menos de 15 anos
+# 24                               5610         Menos de 15 anos
+# 25                               5610         Menos de 15 anos
+# 26                               5610         Menos de 15 anos
+# 27                               5610         Menos de 15 anos
+# 28                               5611             15 a 19 anos
+# 29                               5611             15 a 19 anos
+# 30                               5611             15 a 19 anos
+# 31                               5611             15 a 19 anos
+# 32                               5611             15 a 19 anos
+# 33                               5611             15 a 19 anos
+# 34                               5611             15 a 19 anos
+# 35                               5611             15 a 19 anos
+# 36                               5611             15 a 19 anos
+# 37                               5611             15 a 19 anos
+# 38                               5611             15 a 19 anos
+# 39                               5611             15 a 19 anos
+# 40                               5611             15 a 19 anos
+# 41                               5612             20 a 24 anos
+# 42                               5612             20 a 24 anos
+# 43                               5612             20 a 24 anos
+# 44                               5612             20 a 24 anos
+# 45                               5612             20 a 24 anos
+# 46                               5612             20 a 24 anos
+# 47                               5612             20 a 24 anos
+# 48                               5612             20 a 24 anos
+# 49                               5612             20 a 24 anos
+# 50                               5612             20 a 24 anos
+# 51                               5612             20 a 24 anos
+# 52                               5612             20 a 24 anos
+# 53                               5612             20 a 24 anos
+# 54                               5613             25 a 29 anos
+# 55                               5613             25 a 29 anos
+# 56                               5613             25 a 29 anos
+# 57                               5613             25 a 29 anos
+# 58                               5613             25 a 29 anos
+# 59                               5613             25 a 29 anos
+# 60                               5613             25 a 29 anos
+# 61                               5613             25 a 29 anos
+# 62                               5613             25 a 29 anos
+# 63                               5613             25 a 29 anos
+# 64                               5613             25 a 29 anos
+# 65                               5613             25 a 29 anos
+# 66                               5613             25 a 29 anos
+# 67                               5614             30 a 34 anos
+# 68                               5614             30 a 34 anos
+# 69                               5614             30 a 34 anos
+# 70                               5614             30 a 34 anos
+# 71                               5614             30 a 34 anos
+# 72                               5614             30 a 34 anos
+# 73                               5614             30 a 34 anos
+# 74                               5614             30 a 34 anos
+# 75                               5614             30 a 34 anos
+# 76                               5614             30 a 34 anos
+# 77                               5614             30 a 34 anos
+# 78                               5614             30 a 34 anos
+# 79                               5614             30 a 34 anos
+# 80                               5615             35 a 39 anos
+# 81                               5615             35 a 39 anos
+# 82                               5615             35 a 39 anos
+# 83                               5615             35 a 39 anos
+# 84                               5615             35 a 39 anos
+# 85                               5615             35 a 39 anos
+# 86                               5615             35 a 39 anos
+# 87                               5615             35 a 39 anos
+# 88                               5615             35 a 39 anos
+# 89                               5615             35 a 39 anos
+# 90                               5615             35 a 39 anos
+# 91                               5615             35 a 39 anos
+# 92                               5615             35 a 39 anos
+# 93                               5616             40 a 44 anos
+# 94                               5616             40 a 44 anos
+# 95                               5616             40 a 44 anos
+# 96                               5616             40 a 44 anos
+# 97                               5616             40 a 44 anos
+# 98                               5616             40 a 44 anos
+# 99                               5616             40 a 44 anos
+# 100                              5616             40 a 44 anos
+# 101                              5616             40 a 44 anos
+# 102                              5616             40 a 44 anos
+# 103                              5616             40 a 44 anos
+# 104                              5616             40 a 44 anos
+# 105                              5616             40 a 44 anos
+# 106                              5617             45 a 49 anos
+# 107                              5617             45 a 49 anos
+# 108                              5617             45 a 49 anos
+# 109                              5617             45 a 49 anos
+# 110                              5617             45 a 49 anos
+# 111                              5617             45 a 49 anos
+# 112                              5617             45 a 49 anos
+# 113                              5617             45 a 49 anos
+# 114                              5617             45 a 49 anos
+# 115                              5617             45 a 49 anos
+# 116                              5617             45 a 49 anos
+# 117                              5617             45 a 49 anos
+# 118                              5617             45 a 49 anos
+# 119                              5618             50 a 54 anos
+# 120                              5618             50 a 54 anos
+# 121                              5618             50 a 54 anos
+# 122                              5618             50 a 54 anos
+# 123                              5618             50 a 54 anos
+# 124                              5618             50 a 54 anos
+# 125                              5618             50 a 54 anos
+# 126                              5618             50 a 54 anos
+# 127                              5618             50 a 54 anos
+# 128                              5618             50 a 54 anos
+# 129                              5618             50 a 54 anos
+# 130                              5618             50 a 54 anos
+# 131                              5618             50 a 54 anos
+# 132                              5619             55 a 59 anos
+# 133                              5619             55 a 59 anos
+# 134                              5619             55 a 59 anos
+# 135                              5619             55 a 59 anos
+# 136                              5619             55 a 59 anos
+# 137                              5619             55 a 59 anos
+# 138                              5619             55 a 59 anos
+# 139                              5619             55 a 59 anos
+# 140                              5619             55 a 59 anos
+# 141                              5619             55 a 59 anos
+# 142                              5619             55 a 59 anos
+# 143                              5619             55 a 59 anos
+# 144                              5619             55 a 59 anos
+# 145                              5620             60 a 64 anos
+# 146                              5620             60 a 64 anos
+# 147                              5620             60 a 64 anos
+# 148                              5620             60 a 64 anos
+# 149                              5620             60 a 64 anos
+# 150                              5620             60 a 64 anos
+# 151                              5620             60 a 64 anos
+# 152                              5620             60 a 64 anos
+# 153                              5620             60 a 64 anos
+# 154                              5620             60 a 64 anos
+# 155                              5620             60 a 64 anos
+# 156                              5620             60 a 64 anos
+# 157                              5620             60 a 64 anos
+# 158                              5621          65 anos ou mais
+# 159                              5621          65 anos ou mais
+# 160                              5621          65 anos ou mais
+# 161                              5621          65 anos ou mais
+# 162                              5621          65 anos ou mais
+# 163                              5621          65 anos ou mais
+# 164                              5621          65 anos ou mais
+# 165                              5621          65 anos ou mais
+# 166                              5621          65 anos ou mais
+# 167                              5621          65 anos ou mais
+# 168                              5621          65 anos ou mais
+# 169                              5621          65 anos ou mais
+# 170                              5621          65 anos ou mais
+#     Grupo de idade do homem (Código) Grupo de idade do homem
+# 2                                  0                   Total
+# 3                               5598        Menos de 15 anos
+# 4                               5599            15 a 19 anos
+# 5                               5600            20 a 24 anos
+# 6                               5601            25 a 29 anos
+# 7                               5602            30 a 34 anos
+# 8                               5603            35 a 39 anos
+# 9                               5604            40 a 44 anos
+# 10                              5605            45 a 49 anos
+# 11                              5606            50 a 54 anos
+# 12                              5607            55 a 59 anos
+# 13                              5608            60 a 64 anos
+# 14                              5609         65 anos ou mais
+# 15                                 0                   Total
+# 16                              5598        Menos de 15 anos
+# 17                              5599            15 a 19 anos
+# 18                              5600            20 a 24 anos
+# 19                              5601            25 a 29 anos
+# 20                              5602            30 a 34 anos
+# 21                              5603            35 a 39 anos
+# 22                              5604            40 a 44 anos
+# 23                              5605            45 a 49 anos
+# 24                              5606            50 a 54 anos
+# 25                              5607            55 a 59 anos
+# 26                              5608            60 a 64 anos
+# 27                              5609         65 anos ou mais
+# 28                                 0                   Total
+# 29                              5598        Menos de 15 anos
+# 30                              5599            15 a 19 anos
+# 31                              5600            20 a 24 anos
+# 32                              5601            25 a 29 anos
+# 33                              5602            30 a 34 anos
+# 34                              5603            35 a 39 anos
+# 35                              5604            40 a 44 anos
+# 36                              5605            45 a 49 anos
+# 37                              5606            50 a 54 anos
+# 38                              5607            55 a 59 anos
+# 39                              5608            60 a 64 anos
+# 40                              5609         65 anos ou mais
+# 41                                 0                   Total
+# 42                              5598        Menos de 15 anos
+# 43                              5599            15 a 19 anos
+# 44                              5600            20 a 24 anos
+# 45                              5601            25 a 29 anos
+# 46                              5602            30 a 34 anos
+# 47                              5603            35 a 39 anos
+# 48                              5604            40 a 44 anos
+# 49                              5605            45 a 49 anos
+# 50                              5606            50 a 54 anos
+# 51                              5607            55 a 59 anos
+# 52                              5608            60 a 64 anos
+# 53                              5609         65 anos ou mais
+# 54                                 0                   Total
+# 55                              5598        Menos de 15 anos
+# 56                              5599            15 a 19 anos
+# 57                              5600            20 a 24 anos
+# 58                              5601            25 a 29 anos
+# 59                              5602            30 a 34 anos
+# 60                              5603            35 a 39 anos
+# 61                              5604            40 a 44 anos
+# 62                              5605            45 a 49 anos
+# 63                              5606            50 a 54 anos
+# 64                              5607            55 a 59 anos
+# 65                              5608            60 a 64 anos
+# 66                              5609         65 anos ou mais
+# 67                                 0                   Total
+# 68                              5598        Menos de 15 anos
+# 69                              5599            15 a 19 anos
+# 70                              5600            20 a 24 anos
+# 71                              5601            25 a 29 anos
+# 72                              5602            30 a 34 anos
+# 73                              5603            35 a 39 anos
+# 74                              5604            40 a 44 anos
+# 75                              5605            45 a 49 anos
+# 76                              5606            50 a 54 anos
+# 77                              5607            55 a 59 anos
+# 78                              5608            60 a 64 anos
+# 79                              5609         65 anos ou mais
+# 80                                 0                   Total
+# 81                              5598        Menos de 15 anos
+# 82                              5599            15 a 19 anos
+# 83                              5600            20 a 24 anos
+# 84                              5601            25 a 29 anos
+# 85                              5602            30 a 34 anos
+# 86                              5603            35 a 39 anos
+# 87                              5604            40 a 44 anos
+# 88                              5605            45 a 49 anos
+# 89                              5606            50 a 54 anos
+# 90                              5607            55 a 59 anos
+# 91                              5608            60 a 64 anos
+# 92                              5609         65 anos ou mais
+# 93                                 0                   Total
+# 94                              5598        Menos de 15 anos
+# 95                              5599            15 a 19 anos
+# 96                              5600            20 a 24 anos
+# 97                              5601            25 a 29 anos
+# 98                              5602            30 a 34 anos
+# 99                              5603            35 a 39 anos
+# 100                             5604            40 a 44 anos
+# 101                             5605            45 a 49 anos
+# 102                             5606            50 a 54 anos
+# 103                             5607            55 a 59 anos
+# 104                             5608            60 a 64 anos
+# 105                             5609         65 anos ou mais
+# 106                                0                   Total
+# 107                             5598        Menos de 15 anos
+# 108                             5599            15 a 19 anos
+# 109                             5600            20 a 24 anos
+# 110                             5601            25 a 29 anos
+# 111                             5602            30 a 34 anos
+# 112                             5603            35 a 39 anos
+# 113                             5604            40 a 44 anos
+# 114                             5605            45 a 49 anos
+# 115                             5606            50 a 54 anos
+# 116                             5607            55 a 59 anos
+# 117                             5608            60 a 64 anos
+# 118                             5609         65 anos ou mais
+# 119                                0                   Total
+# 120                             5598        Menos de 15 anos
+# 121                             5599            15 a 19 anos
+# 122                             5600            20 a 24 anos
+# 123                             5601            25 a 29 anos
+# 124                             5602            30 a 34 anos
+# 125                             5603            35 a 39 anos
+# 126                             5604            40 a 44 anos
+# 127                             5605            45 a 49 anos
+# 128                             5606            50 a 54 anos
+# 129                             5607            55 a 59 anos
+# 130                             5608            60 a 64 anos
+# 131                             5609         65 anos ou mais
+# 132                                0                   Total
+# 133                             5598        Menos de 15 anos
+# 134                             5599            15 a 19 anos
+# 135                             5600            20 a 24 anos
+# 136                             5601            25 a 29 anos
+# 137                             5602            30 a 34 anos
+# 138                             5603            35 a 39 anos
+# 139                             5604            40 a 44 anos
+# 140                             5605            45 a 49 anos
+# 141                             5606            50 a 54 anos
+# 142                             5607            55 a 59 anos
+# 143                             5608            60 a 64 anos
+# 144                             5609         65 anos ou mais
+# 145                                0                   Total
+# 146                             5598        Menos de 15 anos
+# 147                             5599            15 a 19 anos
+# 148                             5600            20 a 24 anos
+# 149                             5601            25 a 29 anos
+# 150                             5602            30 a 34 anos
+# 151                             5603            35 a 39 anos
+# 152                             5604            40 a 44 anos
+# 153                             5605            45 a 49 anos
+# 154                             5606            50 a 54 anos
+# 155                             5607            55 a 59 anos
+# 156                             5608            60 a 64 anos
+# 157                             5609         65 anos ou mais
+# 158                                0                   Total
+# 159                             5598        Menos de 15 anos
+# 160                             5599            15 a 19 anos
+# 161                             5600            20 a 24 anos
+# 162                             5601            25 a 29 anos
+# 163                             5602            30 a 34 anos
+# 164                             5603            35 a 39 anos
+# 165                             5604            40 a 44 anos
+# 166                             5605            45 a 49 anos
+# 167                             5606            50 a 54 anos
+# 168                             5607            55 a 59 anos
+# 169                             5608            60 a 64 anos
+# 170                             5609         65 anos ou mais
 ```
 
 ---
@@ -243,13 +1053,6 @@ grep('天', dojutsu, value = TRUE)
 # R Plots
 
 
-```r
-par(mar = c(4, 4, 1, .1))
-plot(cars, pch = 19, col = 'darkgray', las = 1)
-abline(fit, lwd = 2)
-```
-
-![](index_files/figure-html/cars-1.svg)&lt;!-- --&gt;
 
 ---
 
@@ -336,8 +1139,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-c3e774b364da382d5c79" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c3e774b364da382d5c79">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ea53f31c91149bee78f8" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ea53f31c91149bee78f8">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -349,8 +1152,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-8c1bdad5960f97b7e265" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8c1bdad5960f97b7e265">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7f9ef3b95c0ab5ccb472" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7f9ef3b95c0ab5ccb472">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -872,6 +1675,18 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   height: 128px;
   z-index: 0;
 }
+
+.logo_recossa {
+  background-image: url(img/03_Padrao_Fundo_Transparente.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
 </style>
 
 <script>
@@ -885,6 +1700,7 @@ document
   )
   .forEach(el => {
     el.innerHTML += '<div class="logo"></div>';
+    el.innerHTML += '<div class="logo_recossa"></div>';
   });
 </script>
 
