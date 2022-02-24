@@ -1,19 +1,20 @@
 ---
-title: "Dados, Informações, Conhecimento e Sabedoria"
+title: "Dados, Informações, Conhecimento e Sabedoria"  
 subtitle: "Uma gamma de dados"
-author: "Climaco, "
-institute: "RStudio, PBC"
-date: "2016/12/12 (updated: `r Sys.Date()`)"
+author: "Bruna Climaco, Laio Luís, Willian Cardoso, Robson W. S. Pessoa"
+institute: "GAMMA"
+date: "2022/02/24 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
+    includes:
+      after_body: insert-logo.html
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
-      countIncrementalSlides: false
+      countIncrementalSlides: true
 ---
 
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -24,6 +25,7 @@ options(htmltools.dir.version = FALSE)
 Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
 
 ---
+
 class: center, middle
 
 # xaringan
