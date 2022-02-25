@@ -18,6 +18,11 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+dados_anuario <- read_delim("data/dados-anuario.csv",
+                            delim = ";", escape_double = FALSE, trim_ws = TRUE)
 ```
 
 ---
@@ -93,11 +98,35 @@ knitr::include_graphics("img/logo-epe-site.png")
 - [Dados de Energia Elétrica](https://www.epe.gov.br/sites-pt/publicacoes-dados-abertos/dados-abertos/Documents/dados-anuario.csv)
 
 ---
+## Exemplo Energia
+
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE}
+
+
+
+dados_anuario %>% filter(UF %in% c("BA"))  %>% filter(SetorN1 %in% c("Comercial"))
+
+
+```
+
+
+---
 background-image: url(img/Hospital.png) 
 background-position: 25% 50%
 class: center, bottom
 
 # Saúde
+
+---
+
+
+---
+background-image: url(img/pessoas.png) 
+background-position: 50% 50%
+class: center, bottom, inverse
+
+# Família
 
 ---
 
@@ -112,20 +141,6 @@ sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 
 
 ```
-
----
-background-image: url(img/pessoas.png) 
-background-position: 50% 50%
-class: center, bottom, inverse
-
-# Família
-
----
-
-# R Plots
-
-
-
 ---
 
 # Tables
@@ -157,61 +172,6 @@ DT::datatable(
 ---
 
 # Some Tips
-
-- Do not forget to try the `yolo` option of `xaringan::moon_reader`.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        yolo: true
-    ```
-
----
-
-# Some Tips
-
-- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          autoplay: 30000
-    ```
-
-- If you want to restart the play after it reaches the last slide, you may set the sub-option `loop` to TRUE, e.g.,
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          autoplay:
-            interval: 30000
-            loop: true
-    ```
-
----
-
-# Some Tips
-
-- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          countdown: 60000
-    ```
-
-    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
-    
----
-
-# Some Tips
-
-- The title slide is created automatically by **xaringan**, but it is just another remark.js slide added before your other slides.
-
-    The title slide is set to `class: center, middle, inverse, title-slide` by default. You can change the classes applied to the title slide with the `titleSlideClass` option of `nature` (`title-slide` is always applied).
 
     ```yaml
     output:
@@ -334,29 +294,8 @@ head(iris)
 
 Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about R's recycling of vectors)
 
----
-
-# Some Tips
-
-- To make slides work offline, you need to download a copy of remark.js in advance, because **xaringan** uses the online version by default (see the help page `?xaringan::moon_reader`).
-
-- You can use `xaringan::summon_remark()` to download the latest or a specified version of remark.js. By default, it is downloaded to `libs/remark-latest.min.js`.
-
-- Then change the `chakra` option in YAML to point to this file, e.g.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        chakra: libs/remark-latest.min.js
-    ```
-
-- If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
 
 ---
-
-# Macros
-
-- remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1, arg2, ...]` or `![:macroName arg1, arg2, ...](this)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
 
     ```js
     remark.macros.scale = function (percentage) {
@@ -376,53 +315,6 @@ Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about
     ```html
     <img src="image.jpg" style="width: 50%" />
     ```
-
----
-
-# CSS
-
-For example, suppose you want to change the font for code from the default "Source Code Pro" to "Ubuntu Mono". You can create a CSS file named, say, `ubuntu-mono.css`:
-
-```css
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-```
-
-Then set the `css` option in the YAML metadata:
-
-```yaml
-output:
-  xaringan::moon_reader:
-    css: ["default", "ubuntu-mono.css"]
-```
-
-Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
-
-See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
-
-
----
-class: inverse, middle, center
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
-background-size: contain
-
-# Naruto
-
----
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-background-size: 100px
-background-position: 90% 8%
-
-
----
-class: center
-
-# Hand seals (印)
-
-Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
-
-![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)
 
 ---
 class: center, middle
