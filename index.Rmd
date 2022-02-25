@@ -76,7 +76,17 @@ knitr::include_graphics("img/inpe-logo-0.png")
 
 ```
 
-- [Dados de sensores ambientais](http://sinda.crn.inpe.br/PCD/SITE/novo/site/historico/index.php)
+- [Dados de Sensores Ambientais](http://sinda.crn.inpe.br/PCD/SITE/novo/site/historico/index.php)
+
+
+```{r, echo = FALSE, out.height="10%", fig.height=1, out.width="10%",fig.align='left'}
+
+knitr::include_graphics("img/logo-epe-site.png")
+
+```
+
+- [Dados de Energia Elétrica](https://www.epe.gov.br/sites-pt/publicacoes-dados-abertos/dados-abertos/Documents/dados-anuario.csv)
+
 ---
 background-image: url(`r xaringan:::karl`)
 background-size: cover
