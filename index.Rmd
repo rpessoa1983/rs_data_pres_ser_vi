@@ -102,10 +102,15 @@ knitr::include_graphics("img/logo-epe-site.png")
 
 
 ```{r echo=FALSE,eval=TRUE,tidy=FALSE}
+library(formattable)
+library(tibbletime)
 
 
 
-dados_anuario %>% filter(UF %in% c("BA"))  %>% filter(SetorN1 %in% c("Comercial"))
+dados_anuario %>% as_tbl_time(index = Data) %>% filter_time(~'2014') %>% 
+  filter(UF %in% c("BA")) %>% filter(SetorN1 %in% c("Comercial")) %>%
+  select(Consumo,Consumidores) %>%
+  formattable()
 
 
 ```
@@ -143,12 +148,14 @@ sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 ```
 ---
 
-# Tables
+# Tabelas
 
 If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
 
-```{r}
+```{r, eval=TRUE, echo=FALSE}
+
 knitr::kable(head(iris), format = 'html')
+
 ```
 
 
