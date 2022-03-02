@@ -162,6 +162,43 @@ df %>% formattable(align =c("l","r"),caption='Dados do Anuário Estatístico de 
 
 ```
 
+---
+## Empresa de Pesquisa Energética (EPE)
+
+- Ano: 2019
+- UF: BA
+- Fonte: Empresa de Pesquisa Energética (EPE)
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+library(tibbletime)
+library(readr)
+library(echarts4r)
+
+dados_anuario <- read_delim("data/dados-anuario.csv", 
+     delim = ";", escape_double = FALSE, col_types = cols(Data = col_date(format = "%Y%m%d"), 
+       Consumo = col_number(), Consumidores = col_number()), 
+     trim_ws = TRUE)
+
+df<- dados_anuario %>% as_tbl_time(index = Data) %>% 
+  filter_time(~'2019') %>% 
+  filter(UF %in% c("BA")) %>% 
+  select(SetorN1,Consumo) %>%
+  group_by(SetorN1) %>%
+  summarise(Consumo = sum(Consumo)/1e6) %>% arrange(desc(Consumo))
+names(df) <- c("Setor N1", "Consumo (GWh)")
+
+df  |> 
+  head() |> 
+  e_charts(`Setor N1`) |> 
+  e_pie(`Consumo (GWh)`, radius = c("50%", "70%")) |> 
+  e_title("Energia Elétrica - Bahia - 2019") |>
+  e_legend(orient = 'vertical', 
+           right = '5', top = '2%')
+
+
+```
+
+
 
 ---
 background-image: url(img/Hospital.png) 
