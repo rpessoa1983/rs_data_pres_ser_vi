@@ -98,11 +98,7 @@ knitr::include_graphics("img/logo-epe-site.png")
 - [Dados de Energia Elétrica](https://www.epe.gov.br/sites-pt/publicacoes-dados-abertos/dados-abertos/Documents/dados-anuario.csv)
 
 ---
-## Empresa de Pesquisa Energética (EPE)
-
-- Ano: 2014
-- Faixa de Consumo: "> 200 kWh"
-- UF: BA
+## O que podemos melhorar?
 
 
 ```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
@@ -116,14 +112,53 @@ dados_anuario <- read_delim("data/dados-anuario.csv",
        Consumo = col_number(), Consumidores = col_number()), 
      trim_ws = TRUE)
 
-dados_anuario %>% as_tbl_time(index = Data) %>% 
+df<- dados_anuario %>% as_tbl_time(index = Data) %>% 
   filter_time(~'2019') %>% 
   filter(UF %in% c("BA")) %>% 
   select(SetorN1,Consumo) %>%
   group_by(SetorN1) %>%
-  summarise(Consumo = sum(Consumo)) %>% rename()
-  formattable(caption='Dados do Anuário Estatístico de Energia Elétrica')
+  summarise(Consumo = sum(Consumo)/1e6) %>% arrange(desc(Consumo))
+#df$Consumo <- digits(df$Consumo,digits = 0)
 
+df %>% formattable()
+
+#names(df) <- c("Setor N1", "Consumo (GWh)")
+
+#df %>% formattable(align =c("l","r"),caption='Dados do Anuário Estatístico de Energia Elétrica',
+                   #list(`Consumo (GWh)` = color_bar('#fed26e',proportion,0.5)))
+
+```
+
+---
+## Empresa de Pesquisa Energética (EPE)
+
+- Ano: 2019
+- UF: BA
+- Fonte: Empresa de Pesquisa Energética (EPE)
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+library(kableExtra)
+library(formattable)
+library(tibbletime)
+library(readr)
+
+dados_anuario <- read_delim("data/dados-anuario.csv", 
+     delim = ";", escape_double = FALSE, col_types = cols(Data = col_date(format = "%Y%m%d"), 
+       Consumo = col_number(), Consumidores = col_number()), 
+     trim_ws = TRUE)
+
+df<- dados_anuario %>% as_tbl_time(index = Data) %>% 
+  filter_time(~'2019') %>% 
+  filter(UF %in% c("BA")) %>% 
+  select(SetorN1,Consumo) %>%
+  group_by(SetorN1) %>%
+  summarise(Consumo = sum(Consumo)/1e6) %>% arrange(desc(Consumo))
+df$Consumo <- digits(df$Consumo,digits = 0)
+
+names(df) <- c("Setor N1", "Consumo (GWh)")
+
+df %>% formattable(align =c("l","r"),caption='Dados do Anuário Estatístico de Energia Elétrica',
+                   list(`Consumo (GWh)` = color_bar('#fed26e',proportion,0.5)))
 
 ```
 
