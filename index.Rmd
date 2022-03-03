@@ -454,7 +454,7 @@ sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 ---
 ## Geobr
 
-```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE,prompt=FALSE,cache=FALSE,error=FALSE,collapse=TRUE}
+```{r eval=FALSE,echo=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
 #devtools::install_github("ipeaGIT/geobr", subdir = "r-package")
 # Instalacao
 library(geobr)
@@ -468,9 +468,11 @@ library(ggplot2)
 dadocasamentos <- sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 
 dados_total<-dadocasamentos %>% filter(`Grupo de idade da mulher (Código)` %in% c(0)) %>%
-                   filter(`Grupo de idade do homem (Código)` %in% c(0)) %>%   
-  filter(Ano %in% c("2002")) %>% select(`Município (Código)`,Valor) %>% 
-  summarise(`Município (Código)`=as.double(`Município (Código)`),Valor)
+                                filter(`Grupo de idade do homem (Código)` %in% c(0)) %>%   
+                                filter(Ano %in% c("2002")) %>%
+                                select(`Município (Código)`,Valor) %>% 
+                                summarise(`Município (Código)`=as.double(`Município (Código)`),Valor)
+
 mapa <- read_municipality(code_muni=2927408, year=2020)
 
 dataset_final = left_join(mapa, dados_total, by=c("code_muni"="Município (Código)"))

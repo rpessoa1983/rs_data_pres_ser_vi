@@ -207,8 +207,8 @@ que nos permitem dar rastreabilidade para a informação:
 - UF: BA
 - Fonte: Empresa de Pesquisa Energética (EPE)
 
-<div id="htmlwidget-faf095f660d22f0fa887" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-faf095f660d22f0fa887">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"legend":{"data":["Industrial","Residencial","Comercial","Rural","Iluminação Pública","Serviço Público"],"show":true,"type":"plain","orient":"vertical","right":"5","top":"2%"},"series":[{"name":"Consumo (GWh)","type":"pie","radius":["50%","70%"],"data":[{"value":9229.892946,"name":"Industrial"},{"value":7341.866404,"name":"Residencial"},{"value":4026.737128,"name":"Comercial"},{"value":2216.310477,"name":"Rural"},{"value":1179.665565,"name":"Iluminação Pública"},{"value":1079.718946,"name":"Serviço Público"}]}],"title":[{"text":"Energia Elétrica - Bahia - 2019"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-32c50ac19b81ab95669f" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-32c50ac19b81ab95669f">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"legend":{"data":["Industrial","Residencial","Comercial","Rural","Iluminação Pública","Serviço Público"],"show":true,"type":"plain","orient":"vertical","right":"5","top":"2%"},"series":[{"name":"Consumo (GWh)","type":"pie","radius":["50%","70%"],"data":[{"value":9229.892946,"name":"Industrial"},{"value":7341.866404,"name":"Residencial"},{"value":4026.737128,"name":"Comercial"},{"value":2216.310477,"name":"Rural"},{"value":1179.665565,"name":"Iluminação Pública"},{"value":1079.718946,"name":"Serviço Público"}]}],"title":[{"text":"Energia Elétrica - Bahia - 2019"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -261,8 +261,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-3f9ff06b7659a07e3bac" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3f9ff06b7659a07e3bac">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e5c32154c7f5c69a6874" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e5c32154c7f5c69a6874">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -280,177 +280,37 @@ sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 ## Geobr
 
 
-```
-## 
-Downloading: 12 kB     
-Downloading: 12 kB     
-Downloading: 28 kB     
-Downloading: 28 kB     
-Downloading: 36 kB     
-Downloading: 36 kB     
-Downloading: 52 kB     
-Downloading: 52 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 84 kB     
-Downloading: 84 kB     
-Downloading: 100 kB     
-Downloading: 100 kB     
-Downloading: 110 kB     
-Downloading: 110 kB     
-Downloading: 120 kB     
-Downloading: 120 kB     
-Downloading: 140 kB     
-Downloading: 140 kB     
-Downloading: 150 kB     
-Downloading: 150 kB     
-Downloading: 170 kB     
-Downloading: 170 kB     
-Downloading: 180 kB     
-Downloading: 180 kB     
-Downloading: 200 kB     
-Downloading: 200 kB     
-Downloading: 200 kB     
-Downloading: 200 kB     
-Downloading: 210 kB     
-Downloading: 210 kB     
-Downloading: 230 kB     
-Downloading: 230 kB     
-Downloading: 240 kB     
-Downloading: 240 kB     
-Downloading: 250 kB     
-Downloading: 250 kB     
-Downloading: 270 kB     
-Downloading: 270 kB     
-Downloading: 280 kB     
-Downloading: 280 kB     
-Downloading: 290 kB     
-Downloading: 290 kB     
-Downloading: 310 kB     
-Downloading: 310 kB     
-Downloading: 320 kB     
-Downloading: 320 kB     
-Downloading: 340 kB     
-Downloading: 340 kB     
-Downloading: 350 kB     
-Downloading: 350 kB     
-Downloading: 370 kB     
-Downloading: 370 kB     
-Downloading: 370 kB     
-Downloading: 370 kB     
-Downloading: 380 kB     
-Downloading: 380 kB     
-Downloading: 400 kB     
-Downloading: 400 kB     
-Downloading: 420 kB     
-Downloading: 420 kB     
-Downloading: 420 kB     
-Downloading: 420 kB     
-Downloading: 430 kB     
-Downloading: 430 kB     
-Downloading: 450 kB     
-Downloading: 450 kB     
-Downloading: 460 kB     
-Downloading: 460 kB     
-Downloading: 480 kB     
-Downloading: 480 kB     
-Downloading: 500 kB     
-Downloading: 500 kB     
-Downloading: 510 kB     
-Downloading: 510 kB     
-Downloading: 520 kB     
-Downloading: 520 kB     
-Downloading: 540 kB     
-Downloading: 540 kB     
-Downloading: 550 kB     
-Downloading: 550 kB     
-Downloading: 560 kB     
-Downloading: 560 kB     
-Downloading: 580 kB     
-Downloading: 580 kB     
-Downloading: 590 kB     
-Downloading: 590 kB     
-Downloading: 610 kB     
-Downloading: 610 kB     
-Downloading: 620 kB     
-Downloading: 620 kB     
-Downloading: 630 kB     
-Downloading: 630 kB     
-Downloading: 650 kB     
-Downloading: 650 kB     
-Downloading: 660 kB     
-Downloading: 660 kB     
-Downloading: 680 kB     
-Downloading: 680 kB     
-Downloading: 690 kB     
-Downloading: 690 kB     
-Downloading: 700 kB     
-Downloading: 700 kB     
-Downloading: 720 kB     
-Downloading: 720 kB     
-Downloading: 730 kB     
-Downloading: 730 kB     
-Downloading: 740 kB     
-Downloading: 740 kB     
-Downloading: 760 kB     
-Downloading: 760 kB     
-Downloading: 770 kB     
-Downloading: 770 kB     
-Downloading: 790 kB     
-Downloading: 790 kB     
-Downloading: 800 kB     
-Downloading: 800 kB     
-Downloading: 820 kB     
-Downloading: 820 kB     
-Downloading: 840 kB     
-Downloading: 840 kB     
-Downloading: 850 kB     
-Downloading: 850 kB     
-Downloading: 870 kB     
-Downloading: 870 kB     
-Downloading: 870 kB     
-Downloading: 870 kB     
-Downloading: 890 kB     
-Downloading: 890 kB     
-Downloading: 900 kB     
-Downloading: 900 kB     
-Downloading: 920 kB     
-Downloading: 920 kB     
-Downloading: 930 kB     
-Downloading: 930 kB     
-Downloading: 940 kB     
-Downloading: 940 kB     
-Downloading: 960 kB     
-Downloading: 960 kB     
-Downloading: 970 kB     
-Downloading: 970 kB     
-Downloading: 980 kB     
-Downloading: 980 kB     
-Downloading: 1,000 kB     
-Downloading: 1,000 kB     
-Downloading: 1 MB     
-Downloading: 1 MB     
-Downloading: 1 MB     
-Downloading: 1 MB     
-Downloading: 1 MB     
-Downloading: 1 MB     
-Downloading: 1 MB     
-Downloading: 1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB     
-Downloading: 1.1 MB
-```
+```r
+#devtools::install_github("ipeaGIT/geobr", subdir = "r-package")
+# Instalacao
+library(geobr)
+library(sidrar)
+library(sf)
+library(dplyr)
+library(ggplot2)
 
-![](index_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+#lista &lt;- search_sidra("casamento")
+## Depois de rodar o código acima pode optar por uma das tabelas por exemplo:
+dadocasamentos &lt;- sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
+
+dados_total&lt;-dadocasamentos %&gt;% filter(`Grupo de idade da mulher (Código)` %in% c(0)) %&gt;%
+                                filter(`Grupo de idade do homem (Código)` %in% c(0)) %&gt;%   
+                                filter(Ano %in% c("2002")) %&gt;%
+                                select(`Município (Código)`,Valor) %&gt;% 
+                                summarise(`Município (Código)`=as.double(`Município (Código)`),Valor)
+
+mapa &lt;- read_municipality(code_muni=2927408, year=2020)
+
+dataset_final = left_join(mapa, dados_total, by=c("code_muni"="Município (Código)"))
+
+ggplot() +
+  geom_sf(data=dataset_final, aes(fill=Valor), color= NA, size=.15)+
+  labs(title="Número total de casamentos em Salvador",
+       caption='Fonte: Elaboração própria', size=8)+
+  scale_fill_distiller(palette = "Greens", limits=c(1000, 10000),
+                       name="Code_muni")+
+  theme_minimal()
+```
 
 
 ---
@@ -544,23 +404,23 @@ class: center, bottom, inverse
 ---
 ### Número de mulheres vítimas de violência sexual na Bahia
 
-<div id="htmlwidget-3ca5516eebf6b8420e7b" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3ca5516eebf6b8420e7b">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["total"]},"series":[{"data":[{"value":["2009"," 121"]},{"value":["2010"," 331"]},{"value":["2011"," 434"]},{"value":["2012"," 563"]},{"value":["2013"," 933"]},{"value":["2014","1153"]},{"value":["2015","1045"]},{"value":["2016","1201"]},{"value":["2017","1194"]}],"name":"total","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-25dce74a0d25c7b1eb26" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-25dce74a0d25c7b1eb26">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["total"]},"series":[{"data":[{"value":["2009"," 121"]},{"value":["2010"," 331"]},{"value":["2011"," 434"]},{"value":["2012"," 563"]},{"value":["2013"," 933"]},{"value":["2014","1153"]},{"value":["2015","1045"]},{"value":["2016","1201"]},{"value":["2017","1194"]}],"name":"total","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
 **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf) 
 
 ---
 ### Número de mulheres vítimas de violência sexual na Bahia
 
-<div id="htmlwidget-779efa116cd8ae230c69" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-779efa116cd8ae230c69">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["negras","nao_negras","ignorado"]},"series":[{"data":[{"value":["2009"," 88"]},{"value":["2010","193"]},{"value":["2011","264"]},{"value":["2012","415"]},{"value":["2013","648"]},{"value":["2014","849"]},{"value":["2015","797"]},{"value":["2016","886"]},{"value":["2017","872"]}],"name":"negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 19"]},{"value":["2010"," 40"]},{"value":["2011"," 53"]},{"value":["2012"," 73"]},{"value":["2013","114"]},{"value":["2014","132"]},{"value":["2015","120"]},{"value":["2016","160"]},{"value":["2017","153"]}],"name":"nao_negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 14"]},{"value":["2010"," 98"]},{"value":["2011","117"]},{"value":["2012"," 75"]},{"value":["2013","171"]},{"value":["2014","172"]},{"value":["2015","128"]},{"value":["2016","155"]},{"value":["2017","169"]}],"name":"ignorado","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}],"tooltip":{"trigger":"item"}},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e327fab79553a58f0255" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e327fab79553a58f0255">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["negras","nao_negras","ignorado"]},"series":[{"data":[{"value":["2009"," 88"]},{"value":["2010","193"]},{"value":["2011","264"]},{"value":["2012","415"]},{"value":["2013","648"]},{"value":["2014","849"]},{"value":["2015","797"]},{"value":["2016","886"]},{"value":["2017","872"]}],"name":"negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 19"]},{"value":["2010"," 40"]},{"value":["2011"," 53"]},{"value":["2012"," 73"]},{"value":["2013","114"]},{"value":["2014","132"]},{"value":["2015","120"]},{"value":["2016","160"]},{"value":["2017","153"]}],"name":"nao_negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 14"]},{"value":["2010"," 98"]},{"value":["2011","117"]},{"value":["2012"," 75"]},{"value":["2013","171"]},{"value":["2014","172"]},{"value":["2015","128"]},{"value":["2016","155"]},{"value":["2017","169"]}],"name":"ignorado","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}],"tooltip":{"trigger":"item"}},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
   **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf) 
 ---
 ### Número de mulheres vítimas de violência sexual na Bahia
 
-<div id="htmlwidget-b1e7f40e5ff4b1c2f853" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b1e7f40e5ff4b1c2f853">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"series":[{"name":"ocorrencias","type":"boxplot","data":[[14,98,128,169,172],[19,53,114,132,160],[88,264,648,849,886],[121,434,933,1153,1201]]},{"type":"scatter","data":[]}],"xAxis":[{"data":["ignorado","nao_negras","negras","total"],"type":"category"}],"tooltip":{"trigger":"item"},"toolbox":{"feature":{"dataZoom":[]}}},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-10870d2642db098d9067" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10870d2642db098d9067">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"series":[{"name":"ocorrencias","type":"boxplot","data":[[14,98,128,169,172],[19,53,114,132,160],[88,264,648,849,886],[121,434,933,1153,1201]]},{"type":"scatter","data":[]}],"xAxis":[{"data":["ignorado","nao_negras","negras","total"],"type":"category"}],"tooltip":{"trigger":"item"},"toolbox":{"feature":{"dataZoom":[]}}},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
 **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf)   
 
