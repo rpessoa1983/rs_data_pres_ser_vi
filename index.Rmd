@@ -454,20 +454,37 @@ sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 ---
 ## Geobr
 
-```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
-devtools::install_github("ipeaGIT/geobr", subdir = "r-package")
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE,prompt=FALSE,cache=FALSE,error=FALSE,collapse=TRUE}
+#devtools::install_github("ipeaGIT/geobr", subdir = "r-package")
+# Instalacao
+library(geobr)
+library(sidrar)
+library(sf)
+library(dplyr)
+library(ggplot2)
+
+#lista <- search_sidra("casamento")
+## Depois de rodar o código acima pode optar por uma das tabelas por exemplo:
+dadocasamentos <- sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
+
+dados_total<-dadocasamentos %>% filter(`Grupo de idade da mulher (Código)` %in% c(0)) %>%
+                   filter(`Grupo de idade do homem (Código)` %in% c(0)) %>%   
+  filter(Ano %in% c("2002")) %>% select(`Município (Código)`,Valor) %>% 
+  summarise(`Município (Código)`=as.double(`Município (Código)`),Valor)
+mapa <- read_municipality(code_muni=2927408, year=2020)
+
+dataset_final = left_join(mapa, dados_total, by=c("code_muni"="Município (Código)"))
+
+ggplot() +
+  geom_sf(data=dataset_final, aes(fill=Valor), color= NA, size=.15)+
+  labs(title="Número total de casamentos em Salvador",
+       caption='Fonte: Elaboração própria', size=8)+
+  scale_fill_distiller(palette = "Greens", limits=c(1000, 10000),
+                       name="Code_muni")+
+  theme_minimal()
 
 
 
-```
-
-
----
-```{r eval=require('DT'), tidy=FALSE}
-DT::datatable(
-  head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 8)
-)
 ```
 
 
@@ -569,9 +586,9 @@ dados_viol_sex_bahia_raca_cor %>%
 **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf)   
 
 ---
-## Exemplo de dashboard externo
+## Exemplo de dashboard externo - Mapa
 
-1. [App Segurança Pública](https://robsonpessoa.shinyapps.io/ssp_indicadores/?_ga=2.97969759.1366816433.1646278496-885300509.1646278496)
+1. [App Segurança Pública](https://robsonpessoa.shinyapps.io/ssp_indicadores/)
 
 ---
 # Engajamentos, Eventos e Difusão 
