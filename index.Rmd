@@ -1,5 +1,5 @@
 ---
-title: "Dados, Informações, Conhecimento e Sabedoria"  
+title: "Entre Dados e Produção do Conhecimento"  
 subtitle: "Uma gamma de dados"
 author: "Bruna Climaco, Laio Luís, Willian Cardoso, Robson W. S. Pessoa"
 institute: "GAMMA"
@@ -28,7 +28,7 @@ dados_anuario <- read_delim("data/dados-anuario.csv",
 ---
 background-image: url(img/CDnaEP_[VersaoHORIZONTAL-COR].png)
 background-position: 50% 50%
-class: center, bottom, inverse
+class: center, bottom
 
 #Coordenação:
 ## Karla Patrícia Oliveira Esquerre
@@ -62,7 +62,7 @@ class: center, bottom, inverse
 ---
 background-image: url(img/farol.png) 
 background-position: 25% 50%
-class: center, bottom
+class: center, bottom, inverse
 
 # Meio Ambiente
 
@@ -422,18 +422,7 @@ class: center, bottom
 
 # Saúde
 
----
-## Exemplo - Codigo para Sidrar
 
-```{r comment='#',eval=FALSE,echo=TRUE}
-# Instalacao
-library(sidrar)
-lista <- search_sidra("casamento")
-## Depois de rodar o código acima pode optar por uma das tabelas por exemplo:
-sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
-
-
-```
 
 ---
 background-image: url(img/pessoas.png) 
@@ -450,8 +439,30 @@ library(leaflet)
 leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
 ```
 
----
 
+---
+## Exemplo - Codigo para Sidrar
+
+```{r comment='#',eval=FALSE,echo=TRUE}
+# Instalacao
+library(sidrar)
+lista <- search_sidra("casamento")
+## Depois de rodar o código acima pode optar por uma das tabelas por exemplo:
+sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
+
+```
+---
+## Geobr
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+devtools::install_github("ipeaGIT/geobr", subdir = "r-package")
+
+
+
+```
+
+
+---
 ```{r eval=require('DT'), tidy=FALSE}
 DT::datatable(
   head(iris, 10),
@@ -466,11 +477,6 @@ background-position: 50% 50%
 class: center, bottom, inverse
 
 # Justiça
-
----
-layout: true
-
-## indicadores
 
 ---
 
@@ -562,9 +568,10 @@ dados_viol_sex_bahia_raca_cor %>%
 
 **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf)   
 
+---
+## Exemplo de dashboard externo
 
-
-class: center, middle
+1. [App Segurança Pública](https://robsonpessoa.shinyapps.io/ssp_indicadores/?_ga=2.97969759.1366816433.1646278496-885300509.1646278496)
 
 ---
 # Engajamentos, Eventos e Difusão 
@@ -572,3 +579,7 @@ class: center, middle
 
 1. [Open Data Day](https://opendataday.org/pt_br/)
 2. [SER VI](http://ser.uff.br/)
+3. [LGPD](https://youtu.be/d9BoYJaYSRk)
+4. [Dado, Conhecimento e Informação](https://soundcloud.com/grupometropole/19-10-20-comentario-andre-lemos-informacao-dado-e-conhecimento?ref=clipboard&p=i&c=0)
+5. [Beatriz Milz](https://github.com/beatrizmilz)
+6. [Ícaro Bernardes](https://github.com/IcaroBernardes)
