@@ -1,7 +1,7 @@
 ---
 title: "Entre Dados e Produção do Conhecimento"  
 subtitle: "Uma gamma de dados"
-author: "Bruna Climaco, Laio Luís, Willian Cardoso, Robson W. S. Pessoa"
+author: "Bruna Climaco, Laio Luis, William Cardoso, Robson W. S. Pessoa"
 institute: "GAMMA"
 date: "2022/02/24 (updated: `r Sys.Date()`)"
 output:
@@ -57,7 +57,7 @@ background-image: url(img/biker.png)
 background-position: 50% 50%
 class: center, bottom, inverse
 
-# Se você não se equilibrar os dados podem te derrubar!
+# Se você não se equilibrar, os dados podem te derrubar!
 
 ---
 background-image: url(img/farol.png) 
@@ -429,16 +429,16 @@ background-image: url(img/pessoas.png)
 background-position: 50% 50%
 class: center, bottom, inverse
 
-# Família
+# População
 
 
 ---
+## População de Salvador/BA
 
-```{r out.width='100%', fig.height=6, eval=require('leaflet')}
-library(leaflet)
-leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
+
+```{r,echo=FALSE,out.width = "400px"}
+knitr::include_graphics("img/construtura_carioca_cn_1930_v04.png")
 ```
-
 
 ---
 ## Exemplo - Codigo para Sidrar
@@ -595,7 +595,7 @@ dados_viol_sex_bahia_raca_cor %>%
 ---
 # Engajamentos, Eventos e Difusão 
 
-
+0. [Base dos dados](basedosdados.org)
 1. [Open Data Day](https://opendataday.org/pt_br/)
 2. [SER VI](http://ser.uff.br/)
 3. [LGPD](https://youtu.be/d9BoYJaYSRk)

@@ -3,7 +3,7 @@
   <head>
     <title>Entre Dados e Produção do Conhecimento</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Bruna Climaco, Laio Luís, Willian Cardoso, Robson W. S. Pessoa" />
+    <meta name="author" content="Bruna Climaco, Laio Luis, William Cardoso, Robson W. S. Pessoa" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
@@ -12,14 +12,6 @@
     <script src="libs/echarts4r/ecStat.min.js"></script>
     <script src="libs/echarts4r/dataTool.min.js"></script>
     <script src="libs/echarts4r-binding/echarts4r.js"></script>
-    <script src="libs/jquery/jquery.min.js"></script>
-    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet/leaflet.js"></script>
-    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
-    <script src="libs/proj4/proj4.min.js"></script>
-    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
-    <link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet-binding/leaflet.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -27,7 +19,7 @@ class: center, middle, inverse, title-slide
 
 # Entre Dados e Produção do Conhecimento
 ## Uma gamma de dados
-### Bruna Climaco, Laio Luís, Willian Cardoso, Robson W. S. Pessoa
+### Bruna Climaco, Laio Luis, William Cardoso, Robson W. S. Pessoa
 ### GAMMA
 ### 2022/02/24 (updated: 2022-03-03)
 
@@ -69,7 +61,7 @@ background-image: url(img/biker.png)
 background-position: 50% 50%
 class: center, bottom, inverse
 
-# Se você não se equilibrar os dados podem te derrubar!
+# Se você não se equilibrar, os dados podem te derrubar!
 
 ---
 background-image: url(img/farol.png) 
@@ -207,8 +199,8 @@ que nos permitem dar rastreabilidade para a informação:
 - UF: BA
 - Fonte: Empresa de Pesquisa Energética (EPE)
 
-<div id="htmlwidget-32c50ac19b81ab95669f" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-32c50ac19b81ab95669f">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"legend":{"data":["Industrial","Residencial","Comercial","Rural","Iluminação Pública","Serviço Público"],"show":true,"type":"plain","orient":"vertical","right":"5","top":"2%"},"series":[{"name":"Consumo (GWh)","type":"pie","radius":["50%","70%"],"data":[{"value":9229.892946,"name":"Industrial"},{"value":7341.866404,"name":"Residencial"},{"value":4026.737128,"name":"Comercial"},{"value":2216.310477,"name":"Rural"},{"value":1179.665565,"name":"Iluminação Pública"},{"value":1079.718946,"name":"Serviço Público"}]}],"title":[{"text":"Energia Elétrica - Bahia - 2019"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2aae6f44e0112424d88a" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2aae6f44e0112424d88a">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"legend":{"data":["Industrial","Residencial","Comercial","Rural","Iluminação Pública","Serviço Público"],"show":true,"type":"plain","orient":"vertical","right":"5","top":"2%"},"series":[{"name":"Consumo (GWh)","type":"pie","radius":["50%","70%"],"data":[{"value":9229.892946,"name":"Industrial"},{"value":7341.866404,"name":"Residencial"},{"value":4026.737128,"name":"Comercial"},{"value":2216.310477,"name":"Rural"},{"value":1179.665565,"name":"Iluminação Pública"},{"value":1079.718946,"name":"Serviço Público"}]}],"title":[{"text":"Energia Elétrica - Bahia - 2019"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -250,20 +242,14 @@ background-image: url(img/pessoas.png)
 background-position: 50% 50%
 class: center, bottom, inverse
 
-# Família
+# População
 
 
 ---
+## População de Salvador/BA
 
 
-```r
-library(leaflet)
-leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
-```
-
-<div id="htmlwidget-e5c32154c7f5c69a6874" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e5c32154c7f5c69a6874">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
-
+&lt;img src="img/construtura_carioca_cn_1930_v04.png" width="400px" /&gt;
 
 ---
 ## Exemplo - Codigo para Sidrar
@@ -404,23 +390,23 @@ class: center, bottom, inverse
 ---
 ### Número de mulheres vítimas de violência sexual na Bahia
 
-<div id="htmlwidget-25dce74a0d25c7b1eb26" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-25dce74a0d25c7b1eb26">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["total"]},"series":[{"data":[{"value":["2009"," 121"]},{"value":["2010"," 331"]},{"value":["2011"," 434"]},{"value":["2012"," 563"]},{"value":["2013"," 933"]},{"value":["2014","1153"]},{"value":["2015","1045"]},{"value":["2016","1201"]},{"value":["2017","1194"]}],"name":"total","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2e41b9b67f3d5c52b29d" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2e41b9b67f3d5c52b29d">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["total"]},"series":[{"data":[{"value":["2009"," 121"]},{"value":["2010"," 331"]},{"value":["2011"," 434"]},{"value":["2012"," 563"]},{"value":["2013"," 933"]},{"value":["2014","1153"]},{"value":["2015","1045"]},{"value":["2016","1201"]},{"value":["2017","1194"]}],"name":"total","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}]},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
 **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf) 
 
 ---
 ### Número de mulheres vítimas de violência sexual na Bahia
 
-<div id="htmlwidget-e327fab79553a58f0255" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e327fab79553a58f0255">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["negras","nao_negras","ignorado"]},"series":[{"data":[{"value":["2009"," 88"]},{"value":["2010","193"]},{"value":["2011","264"]},{"value":["2012","415"]},{"value":["2013","648"]},{"value":["2014","849"]},{"value":["2015","797"]},{"value":["2016","886"]},{"value":["2017","872"]}],"name":"negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 19"]},{"value":["2010"," 40"]},{"value":["2011"," 53"]},{"value":["2012"," 73"]},{"value":["2013","114"]},{"value":["2014","132"]},{"value":["2015","120"]},{"value":["2016","160"]},{"value":["2017","153"]}],"name":"nao_negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 14"]},{"value":["2010"," 98"]},{"value":["2011","117"]},{"value":["2012"," 75"]},{"value":["2013","171"]},{"value":["2014","172"]},{"value":["2015","128"]},{"value":["2016","155"]},{"value":["2017","169"]}],"name":"ignorado","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}],"tooltip":{"trigger":"item"}},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-65851c1c5cf0227ccc4c" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-65851c1c5cf0227ccc4c">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"xAxis":[{"data":["2009","2010","2011","2012","2013","2014","2015","2016","2017"],"type":"category","boundaryGap":true}],"legend":{"data":["negras","nao_negras","ignorado"]},"series":[{"data":[{"value":["2009"," 88"]},{"value":["2010","193"]},{"value":["2011","264"]},{"value":["2012","415"]},{"value":["2013","648"]},{"value":["2014","849"]},{"value":["2015","797"]},{"value":["2016","886"]},{"value":["2017","872"]}],"name":"negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 19"]},{"value":["2010"," 40"]},{"value":["2011"," 53"]},{"value":["2012"," 73"]},{"value":["2013","114"]},{"value":["2014","132"]},{"value":["2015","120"]},{"value":["2016","160"]},{"value":["2017","153"]}],"name":"nao_negras","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"},{"data":[{"value":["2009"," 14"]},{"value":["2010"," 98"]},{"value":["2011","117"]},{"value":["2012"," 75"]},{"value":["2013","171"]},{"value":["2014","172"]},{"value":["2015","128"]},{"value":["2016","155"]},{"value":["2017","169"]}],"name":"ignorado","type":"bar","yAxisIndex":0,"xAxisIndex":0,"coordinateSystem":"cartesian2d","stack":"grp"}],"tooltip":{"trigger":"item"}},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
   **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf) 
 ---
 ### Número de mulheres vítimas de violência sexual na Bahia
 
-<div id="htmlwidget-10870d2642db098d9067" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
-<script type="application/json" data-for="htmlwidget-10870d2642db098d9067">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"series":[{"name":"ocorrencias","type":"boxplot","data":[[14,98,128,169,172],[19,53,114,132,160],[88,264,648,849,886],[121,434,933,1153,1201]]},{"type":"scatter","data":[]}],"xAxis":[{"data":["ignorado","nao_negras","negras","total"],"type":"category"}],"tooltip":{"trigger":"item"},"toolbox":{"feature":{"dataZoom":[]}}},"dispose":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bdd1487699fb3a29c4e2" style="width:100%;height:500px;" class="echarts4r html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bdd1487699fb3a29c4e2">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true}],"series":[{"name":"ocorrencias","type":"boxplot","data":[[14,98,128,169,172],[19,53,114,132,160],[88,264,648,849,886],[121,434,933,1153,1201]]},{"type":"scatter","data":[]}],"xAxis":[{"data":["ignorado","nao_negras","negras","total"],"type":"category"}],"tooltip":{"trigger":"item"},"toolbox":{"feature":{"dataZoom":[]}}},"dispose":true},"evals":[],"jsHooks":[]}</script>
 
 **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf)   
 
@@ -432,7 +418,7 @@ class: center, bottom, inverse
 ---
 # Engajamentos, Eventos e Difusão 
 
-
+0. [Base dos dados](basedosdados.org)
 1. [Open Data Day](https://opendataday.org/pt_br/)
 2. [SER VI](http://ser.uff.br/)
 3. [LGPD](https://youtu.be/d9BoYJaYSRk)
