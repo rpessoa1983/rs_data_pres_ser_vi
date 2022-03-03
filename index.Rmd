@@ -28,7 +28,10 @@ dados_anuario <- read_delim("data/dados-anuario.csv",
 ---
 background-image: url(img/CDnaEP_[VersaoHORIZONTAL-COR].png)
 background-position: 50% 50%
-class: center, bottom
+class: center, bottom, inverse
+
+#Coordenação:
+## Karla Patrícia Oliveira Esquerre
 
 ---
 
@@ -199,8 +202,220 @@ df  |>
 ```
 
 
+---
+## O que há de estranho neste dados?
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+
+library(readr)
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(gganimate)
+library(ggplotlyExtra)
+library(plotly)
+library(ggplotify)
+library(dplyr)
+library(units)
+
+dados <- read_delim("data/32497_.csv",
+                    ";", escape_double = FALSE, col_types =
+                      cols(DataHora_GMT = col_datetime(format = "%Y-%m-%d %H:%M:%S"),
+                           CorrPSol_Logico = col_integer()),
+                    trim_ws = TRUE)
+
+
+dados %>% mutate(ANO = year(DataHora_GMT)) %>%
+#  filter(ANO>2000) %>%
+  group_by(ANO) %>%
+#  filter(hour(DataHora_GMT) %in% c(12)) %>%
+  filter(!is.na(`RadSolAcum _Mjm-2`)) %>%
+  ggplot(aes(x=DataHora_GMT,y=`RadSolAcum _Mjm-2`)) +
+  #  geom_bar(stat = "identity",fill="#6cbfd3",color="#fac113") +
+  geom_point(shape=18, fill="#6cbfd3", color="#6cbfd3", size=0.5)+
+  labs(
+    title = "Medição Irradiância Solar",
+    x = "Dia",
+    y = parse(text = "`I`~~ group('[', kWh * m^-2, ']')")
+  ) +
+  theme(title = element_text(size = 18,colour = "#db4470"))+
+  theme(axis.title.x=element_text(size=16)) +
+  theme(axis.title.y=element_text(size=16)) +
+  theme(legend.text=element_text(size =16)) +
+  theme(axis.text=element_text(size =16))  +
+  theme(legend.position = "none")+
+  theme(panel.grid = element_blank(), axis.ticks.y = element_line())+
+  #  theme( axis.line = element_line(colour = "darkblue",
+  #                      size = 1, linetype = "solid"))+
+  theme(panel.border = element_rect(fill=NA, color = "#64D2AA", size = 2))+
+  theme(panel.background = element_rect(fill=NA,color = "gray70", size = 2),
+        panel.grid.major = element_line(color = "gray70", size = .5),
+        panel.grid.minor = element_line(color = "gray70", size = .25))+
+  # scale_x_continuous(breaks = seq(2009, 2018, by = 1))+
+  theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+#+
+ # facet_wrap(~ANO,ncol = 3)
+
+
+```
+---
+## Vamos enxergar mais de perto?
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+
+library(readr)
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(gganimate)
+library(ggplotlyExtra)
+library(plotly)
+library(ggplotify)
+library(dplyr)
+library(units)
+
+dados %>% mutate(ANO = year(DataHora_GMT)) %>%
+  filter(ANO>2000) %>%
+  group_by(ANO) %>%
+#  filter(hour(DataHora_GMT) %in% c(12)) %>%
+  filter(!is.na(`RadSolAcum _Mjm-2`)) %>%
+  ggplot(aes(x=DataHora_GMT,y=`RadSolAcum _Mjm-2`)) +
+  #  geom_bar(stat = "identity",fill="#6cbfd3",color="#fac113") +
+  geom_point(shape=18, fill="#6cbfd3", color="#6cbfd3", size=0.5)+
+  labs(
+    title = "Medição Irradiância Solar",
+    x = "Dia",
+    y = parse(text = "`I`~~ group('[', kWh * m^-2, ']')")
+  ) +
+  theme(title = element_text(size = 18,colour = "#db4470"))+
+  theme(axis.title.x=element_text(size=16)) +
+  theme(axis.title.y=element_text(size=16)) +
+  theme(legend.text=element_text(size =16)) +
+  theme(axis.text=element_text(size =16))  +
+  theme(legend.position = "none")+
+  theme(panel.grid = element_blank(), axis.ticks.y = element_line())+
+  #  theme( axis.line = element_line(colour = "darkblue",
+  #                      size = 1, linetype = "solid"))+
+  theme(panel.border = element_rect(fill=NA, color = "#64D2AA", size = 2))+
+  theme(panel.background = element_rect(fill=NA,color = "gray70", size = 2),
+        panel.grid.major = element_line(color = "gray70", size = .5),
+        panel.grid.minor = element_line(color = "gray70", size = .25))+
+  # scale_x_continuous(breaks = seq(2009, 2018, by = 1))+
+  theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))+
+  facet_wrap(~ANO,ncol = 3)
+```
+---
+## E se observamos apenas os valores para 12h?
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+dados %>% mutate(ANO = year(DataHora_GMT)) %>%
+  filter(ANO>2000) %>%
+  group_by(ANO) %>%
+  filter(hour(DataHora_GMT) %in% c(12)) %>%
+  filter(!is.na(`RadSolAcum _Mjm-2`)) %>%
+  ggplot(aes(x=DataHora_GMT,y=`RadSolAcum _Mjm-2`)) +
+  #  geom_bar(stat = "identity",fill="#6cbfd3",color="#fac113") +
+  geom_point(shape=18, fill="#6cbfd3", color="#6cbfd3", size=0.5)+
+  labs(
+    title = "Medição Irradiância Solar 12:00",
+    x = "Dia",
+    y = parse(text = "`I`~~ group('[', kWh * m^-2, ']')")
+  ) +
+  theme(title = element_text(size = 18,colour = "#db4470"))+
+  theme(axis.title.x=element_text(size=16)) +
+  theme(axis.title.y=element_text(size=16)) +
+  theme(legend.text=element_text(size =16)) +
+  theme(axis.text=element_text(size =16))  +
+  theme(legend.position = "none")+
+  theme(panel.grid = element_blank(), axis.ticks.y = element_line())+
+  #  theme( axis.line = element_line(colour = "darkblue",
+  #                      size = 1, linetype = "solid"))+
+  theme(panel.border = element_rect(fill=NA, color = "#64D2AA", size = 2))+
+  theme(panel.background = element_rect(fill=NA,color = "gray70", size = 2),
+        panel.grid.major = element_line(color = "gray70", size = .5),
+        panel.grid.minor = element_line(color = "gray70", size = .25))+
+  # scale_x_continuous(breaks = seq(2009, 2018, by = 1))+
+  theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))+
+  facet_wrap(~ANO,ncol = 3)
+```
 
 ---
+## Vamos avaliar apenas entre 2005 e 2009?
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+
+dados %>% mutate(ANO = year(DataHora_GMT)) %>%
+  filter(ANO>2005 & ANO<2009) %>%
+  group_by(ANO) %>%
+  filter(hour(DataHora_GMT) %in% c(12)) %>%
+  filter(!is.na(`RadSolAcum _Mjm-2`)) %>%
+  ggplot(aes(x=DataHora_GMT,y=`RadSolAcum _Mjm-2`)) +
+  #  geom_bar(stat = "identity",fill="#6cbfd3",color="#fac113") +
+  geom_point(shape=18, fill="#6cbfd3", color="#6cbfd3", size=0.5)+
+  labs(
+    title = "Medição Irradiância Solar 12:00",
+    x = "Dia",
+    y = parse(text = "`I`~~ group('[', kWh * m^-2, ']')")
+  ) +
+  theme(title = element_text(size = 18,colour = "#db4470"))+
+  theme(axis.title.x=element_text(size=16)) +
+  theme(axis.title.y=element_text(size=16)) +
+  theme(legend.text=element_text(size =16)) +
+  theme(axis.text=element_text(size =16))  +
+  theme(legend.position = "none")+
+  theme(panel.grid = element_blank(), axis.ticks.y = element_line())+
+  #  theme( axis.line = element_line(colour = "darkblue",
+  #                      size = 1, linetype = "solid"))+
+  theme(panel.border = element_rect(fill=NA, color = "#64D2AA", size = 2))+
+  theme(panel.background = element_rect(fill=NA,color = "gray70", size = 2),
+        panel.grid.major = element_line(color = "gray70", size = .5),
+        panel.grid.minor = element_line(color = "gray70", size = .25))+
+  # scale_x_continuous(breaks = seq(2009, 2018, by = 1))+
+  theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))+
+  facet_wrap(~ANO,ncol = 1)
+```
+
+---
+## Se há algo estranho é preciso observar 12, 15 e 18h! 
+
+```{r echo=FALSE,eval=TRUE,tidy=FALSE,message=FALSE,warning=FALSE}
+
+dados %>% mutate(ANO = year(DataHora_GMT)) %>%
+  mutate(hora = hour(DataHora_GMT)) %>%
+  filter(ANO %in% c(2008)) %>%
+  group_by(hora) %>%
+  filter(hour(DataHora_GMT) %in% c(12,15,18)) %>%
+  filter(!is.na(`RadSolAcum _Mjm-2`)) %>%
+  ggplot(aes(x=DataHora_GMT,y=`RadSolAcum _Mjm-2`,color=hora)) +
+  #  geom_bar(stat = "identity",fill="#6cbfd3",color="#fac113") +
+  #geom_point(shape=18, fill="#fac113", color="#fac113", size=2)+
+  geom_point(size=2)+
+  labs(
+    title = "Medição Irradiância Solar (2008)",
+    x = "Dia",
+    y = parse(text = "`I`~~ group('[', kWh * m^-2, ']')")
+  ) +
+  theme(title = element_text(size = 18,colour = "#db4470"))+
+  theme(axis.title.x=element_text(size=16)) +
+  theme(axis.title.y=element_text(size=16)) +
+  theme(legend.text=element_text(size =14)) +
+  theme(axis.text=element_text(size =14))  +
+#  theme(legend.position = "none")+
+  theme(panel.grid = element_blank(), axis.ticks.y = element_line())+
+  #  theme( axis.line = element_line(colour = "darkblue",
+  #                      size = 1, linetype = "solid"))+
+  theme(panel.border = element_rect(fill=NA, color = "#64D2AA", size = 2))+
+  theme(panel.background = element_rect(fill=NA,color = "gray90", size = 2),
+        panel.grid.major = element_line(color = "gray90", size = .5),
+        panel.grid.minor = element_line(color = "gray90", size = .25))+
+  # scale_x_continuous(breaks = seq(2009, 2018, by = 1))+
+  theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0)) #+
+  #facet_wrap(~hora,ncol = 4)
+```
+
+---
+
+
 background-image: url(img/Hospital.png) 
 background-position: 25% 50%
 class: center, bottom
@@ -208,20 +423,9 @@ class: center, bottom
 # Saúde
 
 ---
+## Exemplo - Codigo para Sidrar
 
-
----
-background-image: url(img/pessoas.png) 
-background-position: 50% 50%
-class: center, bottom, inverse
-
-# Família
-
----
-
-# Exemplo - Codigo para Sidrar
-
-```{r comment='#'}
+```{r comment='#',eval=FALSE,echo=TRUE}
 # Instalacao
 library(sidrar)
 lista <- search_sidra("casamento")
@@ -230,18 +434,13 @@ sidrar::get_sidra(350,geo = "City",geo.filter = 2927408)
 
 
 ```
+
 ---
+background-image: url(img/pessoas.png) 
+background-position: 50% 50%
+class: center, bottom, inverse
 
-# Tabelas
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-```{r, eval=TRUE, echo=FALSE}
-
-knitr::kable(head(iris), format = 'html')
-
-```
-
+# Família
 
 
 ---
@@ -260,155 +459,116 @@ DT::datatable(
 )
 ```
 
+
 ---
+background-image: url(img/tribunal_justica.png) 
+background-position: 50% 50%
+class: center, bottom, inverse
 
-# Some Tips
+# Justiça
 
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          titleSlideClass: [top, left, inverse]
-    ```
-    
---
+---
+layout: true
 
-- If you'd like to create your own title slide, disable **xaringan**'s title slide with the `seal = FALSE` option of `moon_reader`.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        seal: false
-    ```
+## indicadores
 
 ---
 
-# Some Tips
+```{r , echo = FALSE, eval=TRUE }
 
-- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.org/xaringan/incremental.html) for examples.
+library(readr)
+dados_viol_sex_bahia_raca_cor <- read_delim("data/dados_viol_sex_bahia_raca_cor.csv", 
+     ",", escape_double = FALSE, col_types = cols(ano = col_character(), 
+         ignorado = col_integer(), nao_negras = col_integer(), 
+         negras = col_integer(), total = col_integer()), 
+     trim_ws = TRUE)
 
-- The option `highlightLines: true` of `nature` will highlight code lines that start with `*`, or are wrapped in `{{ }}`, or have trailing comments `#<<`;
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          highlightLines: true
-    ```
-
-    See examples on the next page.
-
----
-
-# Some Tips
-
-
-.pull-left[
-An example using a leading `*`:
-
-    ```r
-    if (TRUE) {
-    ** message("Very important!")
-    }
-    ```
-Output:
-```r
-if (TRUE) {
-* message("Very important!")
-}
+knitr::kable(head(dados_viol_sex_bahia_raca_cor,10),caption = "Número de mulheres vítimas de violência sexual na Bahia", format = 'html')
 ```
-
-This is invalid R code, so it is a plain fenced code block that is not executed.
-]
-
-.pull-right[
-An example using `{{}}`:
-
-````
-`r ''````{r tidy=FALSE}
-if (TRUE) {
-*{{ message("Very important!") }}
-}
-```
-````
-Output:
-```{r tidy=FALSE}
-if (TRUE) {
-{{ message("Very important!") }}
-}
-```
-
-It is valid R code so you can run it. Note that `{{}}` can wrap an R expression of multiple lines.
-]
+**Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf) 
 
 ---
+### Número de mulheres vítimas de violência sexual na Bahia
 
-# Some Tips
-
-An example of using the trailing comment `#<<` to highlight lines:
-
-````markdown
-`r ''````{r tidy=FALSE}
+```{r , echo = FALSE, eval=TRUE}
+library(readr)
 library(ggplot2)
-ggplot(mtcars) + 
-  aes(mpg, disp) + 
-  geom_point() +   #<<
-  geom_smooth()    #<<
+library(dplyr)
+library(echarts4r) 
+
+dados_viol_sex_bahia_raca_cor <- read_delim("data/dados_viol_sex_bahia_raca_cor.csv", 
+     ",", escape_double = FALSE, col_types = cols(ano = col_character(), 
+         ignorado = col_integer(), nao_negras = col_integer(), 
+         negras = col_integer(), total = col_integer()), 
+     trim_ws = TRUE)
+
+  dados_viol_sex_bahia_raca_cor %>% 
+  e_charts(ano) %>% 
+  e_bar(total, stack = "grp")
 ```
-````
 
-Output:
+**Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf) 
 
-```{r tidy=FALSE, eval=FALSE}
+---
+### Número de mulheres vítimas de violência sexual na Bahia
+
+```{r , echo = FALSE, eval=TRUE}
+library(readr)
 library(ggplot2)
-ggplot(mtcars) + 
-  aes(mpg, disp) + 
-  geom_point() +   #<<
-  geom_smooth()    #<<
+library(dplyr)
+library(echarts4r) 
+
+dados_viol_sex_bahia_raca_cor <- read_delim("data/dados_viol_sex_bahia_raca_cor.csv", 
+     ",", escape_double = FALSE, col_types = cols(ano = col_character(), 
+         ignorado = col_integer(), nao_negras = col_integer(), 
+         negras = col_integer(), total = col_integer()), 
+     trim_ws = TRUE)
+
+  dados_viol_sex_bahia_raca_cor %>% 
+  e_charts(ano) %>% 
+  e_bar(negras, stack = "grp") %>% 
+  e_bar(nao_negras, stack = "grp") %>% 
+  e_bar(ignorado, stack = "grp") %>%
+     e_tooltip(trigger = "item")
+  
 ```
 
+  **Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf) 
 ---
+### Número de mulheres vítimas de violência sexual na Bahia
 
-# Some Tips
+```{r , echo = FALSE, eval=TRUE}
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(echarts4r) 
+library(tidyr)
 
-When you enable line-highlighting, you can also use the chunk option `highlight.output` to highlight specific lines of the text output from a code chunk. For example, `highlight.output = TRUE` means highlighting all lines, and `highlight.output = c(1, 3)` means highlighting the first and third line.
+dados_viol_sex_bahia_raca_cor <- read_delim("data/dados_viol_sex_bahia_raca_cor.csv", 
+     ",", escape_double = FALSE, col_types = cols(ano = col_character(), 
+         ignorado = col_double(), nao_negras = col_double(), 
+         negras = col_double(), total = col_double()), 
+     trim_ws = TRUE)
 
-````md
-`r ''````{r, highlight.output=c(1, 3)}
-head(iris)
+dados_viol_sex_bahia_raca_cor %>% 
+  gather(key = "categorias",value = "ocorrencias",-ano) %>% 
+  group_by(categorias) %>%
+  e_charts() %>% 
+  e_boxplot(ocorrencias) %>%
+  e_tooltip(trigger = "item") %>%
+  e_toolbox_feature(feature = "dataZoom")
+
 ```
-````
 
-```{r, highlight.output=c(1, 3), echo=FALSE}
-head(iris)
-```
-
-Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about R's recycling of vectors)
+**Fonte:** Rede Observatórios de Segurança Pública. [A cor da violência na Bahia - Uma análise dos homicídios e violência sexual na última década](http://observatorioseguranca.com.br/wp-content/uploads/2020/03/A-cor-da-viole%CC%82ncia-na-Bahia-Uma-ana%CC%81lise-dos-homici%CC%81dios-e-viole%CC%82ncia-sexual-na-u%CC%81ltima-de%CC%81cada-FINAL.pdf)   
 
 
----
 
-    ```js
-    remark.macros.scale = function (percentage) {
-      var url = this;
-      return '<img src="' + url + '" style="width: ' + percentage + '" />';
-    };
-    ```
-
-    Then the Markdown text
-
-    ```markdown
-    ![:scale 50%](image.jpg)
-    ```
-
-    will be translated to
-    
-    ```html
-    <img src="image.jpg" style="width: 50%" />
-    ```
-
----
 class: center, middle
 
-# Thanks!
+---
+# Engajamentos, Eventos e Difusão 
 
+
+1. [Open Data Day](https://opendataday.org/pt_br/)
+2. [SER VI](http://ser.uff.br/)
